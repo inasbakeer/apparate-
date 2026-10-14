@@ -62,14 +62,14 @@ html,body{background:#0E0E12!important}
 button.primary,[role="button"].primary,.sui.button.primary{background:linear-gradient(90deg,#E2198B,#8A55D6,#0A86FF)!important;border:0!important;color:#fff!important}
 </style></head>
 <body>
-<div id="help" style="position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:99999;max-width:min(560px,calc(100% - 32px));background:#fff;color:#1a1a1a;font:14px/1.5 system-ui,sans-serif;padding:14px 18px;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,.35);border-top:4px solid #E2198B">
+<div id="help" hidden style="position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:99999;max-width:min(560px,calc(100% - 32px));background:#fff;color:#1a1a1a;font:14px/1.5 system-ui,sans-serif;padding:14px 18px;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,.35);border-top:4px solid #E2198B">
 <b>Test editor: how to sign in</b><br>
 1. <a href="https://github.com/settings/tokens/new?scopes=repo&amp;description=Apparate%20editor" target="_blank" rel="noopener">Create a GitHub token</a>: keep the ticked <b>repo</b> box, click <b>Generate token</b>, copy it (starts with ghp_).<br>
 2. Click <b>Sign In Using Access Token</b> below and paste it. (The "Sign In with GitHub" button only works on the live site.)
 <button onclick="this.parentNode.remove()" style="position:absolute;top:6px;right:8px;border:0;background:none;font-size:18px;cursor:pointer" aria-label="Close">×</button>
 </div>
 <script src="https://unpkg.com/@sveltia/cms@0.221.8/dist/sveltia-cms.js"></script>
-<script>(function(){var t=setInterval(function(){var h=document.getElementById('help');if(!h){clearInterval(t);return;}var btns=[].slice.call(document.querySelectorAll('button')).filter(function(b){return !h.contains(b);});var signIn=btns.some(function(b){return /sign in/i.test(b.textContent);});var loaded=btns.length>0;if(loaded&&!signIn){h.remove();clearInterval(t);}},700);})();</script>
+<script>(function(){var t=setInterval(function(){var h=document.getElementById('help');if(!h){clearInterval(t);return;}var btns=[].slice.call(document.querySelectorAll('button')).filter(function(b){return !h.contains(b);});var signIn=btns.some(function(b){return /sign in/i.test(b.textContent);});h.hidden=!signIn;if(btns.length>0&&!signIn){h.remove();clearInterval(t);}},500);})();</script>
 </body></html>
 `);
     });
