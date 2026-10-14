@@ -66,7 +66,7 @@ button.primary,[role="button"].primary,.sui.button.primary{background:linear-gra
 <button onclick="this.parentNode.remove()" style="position:absolute;top:6px;right:8px;border:0;background:none;font-size:18px;cursor:pointer" aria-label="Close">×</button>
 </div>
 <script src="https://unpkg.com/@sveltia/cms@0.221.8/dist/sveltia-cms.js"></script>
-<script>(function(){var t=setInterval(function(){var h=document.getElementById('help');if(!h){clearInterval(t);return;}var signIn=/Sign In Using Access Token/i.test(document.body.innerText);var loaded=document.body.innerText.length>200;if(loaded&&!signIn){h.remove();clearInterval(t);}},700);})();</script>
+<script>(function(){var t=setInterval(function(){var h=document.getElementById('help');if(!h){clearInterval(t);return;}var btns=[].slice.call(document.querySelectorAll('button')).filter(function(b){return !h.contains(b);});var signIn=btns.some(function(b){return /sign in/i.test(b.textContent);});var loaded=btns.length>3;if(loaded&&!signIn){h.remove();clearInterval(t);}},700);})();</script>
 </body></html>
 `);
     });
