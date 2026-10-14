@@ -45,7 +45,16 @@ export default function (eleventyConfig) {
       fs.writeFileSync(path.join(out, "index.html"), `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow"><title>Apparate · Content editor (test)</title></head>
-<body><script src="https://unpkg.com/@sveltia/cms@0.221.8/dist/sveltia-cms.js"></script></body></html>
+<body>
+<div id="help" style="position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:99999;max-width:min(560px,calc(100% - 32px));background:#fff;color:#1a1a1a;font:14px/1.5 system-ui,sans-serif;padding:14px 18px;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,.35);border-top:4px solid #E2198B">
+<b>Test editor: how to sign in</b><br>
+1. <a href="https://github.com/settings/tokens/new?scopes=repo&amp;description=Apparate%20editor" target="_blank" rel="noopener">Create a GitHub token</a>: keep the ticked <b>repo</b> box, click <b>Generate token</b>, copy it (starts with ghp_).<br>
+2. Click <b>Sign In Using Access Token</b> below and paste it. (The "Sign In with GitHub" button only works on the live site.)
+<button onclick="this.parentNode.remove()" style="position:absolute;top:6px;right:8px;border:0;background:none;font-size:18px;cursor:pointer" aria-label="Close">×</button>
+</div>
+<script src="https://unpkg.com/@sveltia/cms@0.221.8/dist/sveltia-cms.js"></script>
+<script>new MutationObserver(()=>{if(document.querySelector('[role="main"],main,nav[aria-label]')&&!document.body.innerText.includes('Sign In Using Access Token')){const h=document.getElementById('help');if(h)h.remove();}}).observe(document.body,{childList:true,subtree:true});</script>
+</body></html>
 `);
     });
   }
