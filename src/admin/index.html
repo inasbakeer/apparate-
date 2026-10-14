@@ -4,11 +4,31 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Apparate · Content editor</title>
+  <title>Apparate · Content</title>
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anta&family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    /* Apparate brand layer for the Decap editor (live site) */
+    :root{--ap-magenta:#E2198B;--ap-blue:#0A86FF;--ap-ink:#0E0E12;--ap-grad:linear-gradient(90deg,#E2198B,#8A55D6,#0A86FF)}
+    body,input,textarea,select,button{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif!important}
+    body{background:#F4F4F6}
+    [class*="-AuthenticationPage"],[class*="-StyledAuthenticationPage"]{background:var(--ap-ink)!important;color:#fff}
+    [class*="-LoginButton"],[class*="-AppHeaderQuickNewButton"],[class*="-CollectionTopNewButton"]{background:var(--ap-grad)!important;color:#fff!important;border:0!important;border-radius:999px!important;font-weight:600!important}
+    [class*="-AppHeaderContent"]{border-bottom:3px solid transparent;border-image:var(--ap-grad) 1}
+    [class*="-AppHeaderNavLink"].active,[class*="-AppHeaderNavLink"]:hover{color:var(--ap-magenta)!important}
+    [class*="-AppHeaderNavLink"].active svg,[class*="-AppHeaderNavLink"]:hover svg{fill:var(--ap-magenta)!important;stroke:var(--ap-magenta)!important}
+    [class*="-SidebarNavLink"].active,[class*="-SidebarNavLink"]:hover{color:var(--ap-magenta)!important;border-left-color:var(--ap-magenta)!important}
+    [class*="-ListCard"]:hover,[class*="-GridCard"]:hover{border-color:var(--ap-magenta)!important}
+    a{color:var(--ap-magenta)}
+    input:focus,textarea:focus,select:focus{border-color:var(--ap-magenta)!important}
+    [class*="-AppHeaderLogo"] img{max-height:30px;width:auto}
+  </style>
 </head>
 <body>
+  <!-- branded with Apparate colors, logo and fonts -->
   <script src="https://unpkg.com/decap-cms@3.16.2/dist/decap-cms.js"></script>
   <script>
     // Preview panes use the live site styles so editors see brand fonts and colors.

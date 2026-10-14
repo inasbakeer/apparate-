@@ -41,10 +41,23 @@ export default function (eleventyConfig) {
       fs.mkdirSync(out, { recursive: true });
       let cfg = fs.readFileSync("src/admin/config.yml", "utf8");
       cfg = cfg.replace(/backend:\n(  .*\n)+/, `backend:\n  name: github\n  repo: ${process.env.GITHUB_REPOSITORY}\n  branch: main\n`);
+      // brand assets live under the sub-folder address on the test site
+      cfg = cfg.replace(/\/assets\/img\/image114\.webp/g, `${PREFIX}/assets/img/favicon.png`).replace('logo_url:', 'app_title: Apparate · Content (test)\nlogo_url:');
       fs.writeFileSync(path.join(out, "config.yml"), cfg);
       fs.writeFileSync(path.join(out, "index.html"), `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow"><title>Apparate · Content editor (test)</title></head>
+<meta name="robots" content="noindex, nofollow"><title>Apparate · Content (test)</title>
+<link rel="icon" type="image/png" href="${PREFIX}/assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anta&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Apparate brand layer for the Sveltia editor (test site) */
+:root,:root[data-theme]{--sui-base-hue:325!important;--sui-font-family-default:Inter,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+ --sui-primary-accent-color:#E2198B!important;--sui-primary-accent-color-light:#ff4fb0!important;--sui-primary-accent-color-dark:#b0106b!important;
+ --sui-primary-accent-color-text:#ff6fbd!important;--sui-primary-accent-color-inverted:#fff!important}
+:root[data-theme="light"]{--sui-primary-accent-color-text:#c0147a!important}
+button.primary,[role="button"].primary,.sui.button.primary{background:linear-gradient(90deg,#E2198B,#8A55D6,#0A86FF)!important;border:0!important;color:#fff!important}
+</style></head>
 <body>
 <div id="help" style="position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:99999;max-width:min(560px,calc(100% - 32px));background:#fff;color:#1a1a1a;font:14px/1.5 system-ui,sans-serif;padding:14px 18px;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,.35);border-top:4px solid #E2198B">
 <b>Test editor: how to sign in</b><br>

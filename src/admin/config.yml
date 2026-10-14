@@ -11,7 +11,10 @@ backend:
 
 site_url: https://apparate.net
 display_url: https://apparate.net
-logo_url: /assets/img/favicon.png
+logo_url: /assets/img/image114.webp
+logo:
+  src: /assets/img/image114.webp
+  show_in_header: true
 media_folder: src/assets/img
 public_folder: /assets/img
 
