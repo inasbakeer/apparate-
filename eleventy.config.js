@@ -7,6 +7,9 @@ const ARTIFACT = !!process.env.ARTIFACT;
 const PREFIX = (process.env.PATH_PREFIX || "").replace(/\/+$/, "");
 const TEST = !!process.env.TEST_SITE;
 
+import fs from "node:fs";
+import path from "node:path";
+
 export default function (eleventyConfig) {
   eleventyConfig.addGlobalData("env", { artifact: ARTIFACT, prefix: PREFIX, test: TEST });
 
@@ -29,6 +32,23 @@ export default function (eleventyConfig) {
     if (p.startsWith("/#")) return currentUrl === "/" ? p.slice(1) : "./" + p.slice(1);
     return p.replace(/^\//, "");
   });
+
+  // Test copy on GitHub Pages: the editor signs in with GitHub directly (Sveltia CMS, same config),
+  // because Netlify Identity only exists once the site runs on Netlify.
+  if (TEST && process.env.GITHUB_REPOSITORY) {
+    eleventyConfig.on("eleventy.after", ({ dir }) => {
+      const out = path.join(dir.output, "admin");
+      fs.mkdirSync(out, { recursive: true });
+      let cfg = fs.readFileSync("src/admin/config.yml", "utf8");
+      cfg = cfg.replace(/backend:\n(  .*\n)+/, `backend:\n  name: github\n  repo: ${process.env.GITHUB_REPOSITORY}\n  branch: main\n`);
+      fs.writeFileSync(path.join(out, "config.yml"), cfg);
+      fs.writeFileSync(path.join(out, "index.html"), `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><title>Apparate · Content editor (test)</title></head>
+<body><script src="https://unpkg.com/@sveltia/cms@0.221.8/dist/sveltia-cms.js"></script></body></html>
+`);
+    });
+  }
 
   eleventyConfig.addFilter("pad2", n => String(n).padStart(2, "0"));
   eleventyConfig.addFilter("num", (n, plain) => plain ? String(n) : Number(n).toLocaleString("en-US"));
