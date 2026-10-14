@@ -1,0 +1,452 @@
+---
+layout: base.njk
+pageClass: home
+permalink: "/"
+seoKey: home
+pageType: WebPage
+---
+{%- from "icons.njk" import icon -%}
+{%- set h = home -%}
+{%- macro chapter(id, c) -%}
+<section class="chapter" id="{{ id }}">
+  <div class="bg" style="background-image:url({{ c.image | u }})" data-speed="0.25"></div>
+  <div class="wrap">
+    <h2><span class="script">{{ c.script }}</span> {{ c.rest }}</h2>
+    <p>{{ c.text }}</p>
+    <div class="toc">{% for l in c.links %}<a class="chip" href="{{ l.href }}">{{ l.label }}</a>{% endfor %}</div>
+  </div>
+</section>
+{%- endmacro %}
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="bg" style="background-image:url({{ h.hero.image | u }})" data-mouse="18"></div>
+  <div class="glow g1" data-mouse="-40"></div>
+  <div class="glow g2" data-mouse="30"></div>
+  <div class="veil"></div>
+  <div class="side">{{ h.hero.side }}</div>
+  <div class="wrap">
+    <div class="kicker">
+      <span class="eyebrow">{{ h.hero.eyebrow }}</span>
+      <span class="chip" style="color:#fff;border-color:rgba(255,255,255,.35)">{{ h.hero.chip }}</span>
+    </div>
+    <h1 id="heroTitle"><span class="script">{{ h.hero.script }}</span><br>
+      {%- for l in h.hero.lines %}
+      <span class="w"><span>{{ l }}</span></span>
+      {%- endfor %}
+    </h1>
+    <div class="sub">
+      <p>{{ h.hero.text }}</p>
+      <div class="ctas">
+        <a class="btn" href="{{ '/start/' | u }}">{{ h.hero.ctaPrimary }} {{ icon("arrow") | safe }}</a>
+        <a class="btn ghost" href="#portfolio">{{ h.hero.ctaSecondary }}</a>
+      </div>
+    </div>
+  </div>
+  <div class="scrollcue" aria-hidden="true"></div>
+</section>
+
+<div class="wrap">
+  <div class="stats">
+    {%- for s in h.stats %}
+    <div class="stat"><b data-count="{{ s.value }}" data-from="{{ s.from or 0 }}" data-prefix="{{ s.prefix }}" data-suffix="{{ s.suffix }}"{% if s.plain %} data-plain{% endif %}>{{ s.prefix }}{{ s.value | num(s.plain) }}{{ s.suffix }}</b><span>{{ s.label }}</span></div>
+    {%- endfor %}
+  </div>
+</div>
+
+<!-- 01 WHO WE ARE -->
+{{ chapter("who", h.chapters.who) }}
+
+<section class="light pad" id="story">
+  <div class="wrap story">
+    <div class="pin">
+      <div class="frame"><img src="{{ h.story.image | u }}" alt="{{ h.story.imageAlt }}" data-par loading="lazy" width="1254" height="1254"><span class="tag">{{ h.story.imageTag }}</span></div>
+    </div>
+    <div>
+      <span class="eyebrow">{{ h.story.eyebrow }}</span>
+      <h2 class="h2" style="margin-top:14px">{{ h.story.title }}</h2>
+      <span class="gbar"></span>
+      <ol class="tl" id="tl"><span class="fill" id="tlfill"></span>
+        {%- for it in h.story.items %}
+        <li><h3 class="tlh">{{ it.label }}</h3><p{% if it.big %} class="big"{% endif %}>{{ it.text }}</p></li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="gap" style="background:var(--ink)">
+  <div class="wrap">
+    <div class="gaptop">
+      <div class="gapintro">
+        <span class="eyebrow">{{ h.gap.eyebrow }}</span>
+        <h2 class="h2" style="margin-top:14px">{{ h.gap.title }}</h2>
+        <span class="gbar"></span>
+        <div class="gapnote2">
+          <span class="eyebrow">{{ h.gap.gapTitle }}</span>
+          <p>{{ h.gap.gapText }}</p>
+          <p class="strong">{{ h.gap.gapStrong }}</p>
+        </div>
+      </div>
+      <figure class="frame gapimg"><img src="{{ h.gap.image | u }}" alt="{{ h.gap.imageAlt }}" loading="lazy" width="1254" height="1254"></figure>
+    </div>
+    <div class="vs">
+      <article class="vs-col vs-prob">
+        <header><span class="vs-badge">✕</span><h3>{{ h.gap.problemsTitle }}</h3></header>
+        <ol>{% for p in h.gap.problems %}<li><span class="n">{{ (loop.index) | pad2 }}</span><b>{{ p }}</b></li>{% endfor %}</ol>
+      </article>
+      <div class="vs-arrow" aria-hidden="true"><svg viewBox="0 0 48 24"><path d="M2 12h40M34 4l8 8-8 8"/></svg></div>
+      <article class="vs-col vs-sol">
+        <header><span class="vs-badge">✓</span><div><span class="eyebrow">{{ h.gap.solutionsEyebrow }}</span><h3>{{ h.gap.solutionsTitle }}</h3></div></header>
+        <ol>{% for s in h.gap.solutions %}<li><span class="n">{{ (loop.index) | pad2 }}</span><div><b>{{ s.title }}</b><small>{{ s.text }}</small></div></li>{% endfor %}</ol>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="purpose pad" id="purpose">
+  <div class="wrap">
+    <span class="eyebrow">{{ h.purpose.eyebrow }}</span>
+    <h2 class="h2" style="margin-top:14px">{{ h.purpose.titleStart }} <span class="script">{{ h.purpose.titleScript }}</span></h2>
+    <span class="gbar"></span>
+  </div>
+  <div class="wrap">
+    <figure class="frame purpose-band"><img src="{{ h.purpose.image | u }}" alt="Apparate production floor with sewing lines" data-par loading="lazy"></figure>
+    <div class="vm">
+      <article><h3 class="eyebrow">Our vision</h3><p>{{ h.purpose.vision }}</p></article>
+      <article><h3 class="eyebrow">Our mission</h3><p>{{ h.purpose.mission }}</p></article>
+    </div>
+    <div class="serve">
+      <span class="eyebrow">{{ h.purpose.serveTitle }}</span>
+      <div class="row">{% for s in h.purpose.serve %}<span class="chip">{{ s }}</span>{% endfor %}</div>
+    </div>
+  </div>
+</section>
+<section class="light pad" id="values">
+  <div class="wrap">
+    <span class="eyebrow">{{ h.values.eyebrow }}</span>
+    <h2 class="h2" style="margin-top:14px">{{ h.values.title }}</h2>
+    <span class="gbar"></span>
+    <div class="values">
+      {%- for v in h.values.items %}
+      <article class="val"><span class="ic">{{ icon(v.icon) | safe }}</span><h3>{{ v.title }}</h3><p>{{ v.text }}</p></article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="white pad" id="method" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">{{ h.method.eyebrow }}</span>
+    <h2 class="h2" style="margin-top:14px"><span class="script">{{ h.method.titleScript }}</span> {{ h.method.titleRest }}</h2>
+    <p class="lead muted" style="margin-top:20px">{{ h.method.text }}</p>
+    <div class="method">
+      {%- for m in h.method.items %}
+      <article><div class="k">{{ (loop.index) | pad2 }}</div><div class="e">{{ m.label }}</div><h3>{{ m.title }}</h3><p>{{ m.text }}</p></article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- 02 WHAT WE MAKE -->
+{{ chapter("make", h.chapters.make) }}
+
+<section class="light pad" id="network">
+  <div class="wrap cap">
+    <div class="frame"><img src="{{ h.network.image | u }}" alt="{{ h.network.imageAlt }}" data-par loading="lazy"></div>
+    <div>
+      <span class="eyebrow">{{ h.network.eyebrow }}</span>
+      <h2 class="h2" style="margin-top:14px">{{ h.network.title }}</h2>
+      <span class="gbar"></span>
+      <p style="margin-top:24px;font-size:17px">{{ h.network.text }}</p>
+      <div class="capnums">
+        {%- for n in h.network.numbers %}
+        <div class="capnum"><b data-count="{{ n.value }}" data-prefix="{{ n.prefix }}" data-suffix="{{ n.suffix }}">{{ n.prefix }}{{ n.value | num }}{{ n.suffix }}</b><span>{{ n.label }}</span></div>
+        {%- endfor %}
+      </div>
+      <p class="fine">{{ h.network.note }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="light pad" id="fabrics" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">{{ h.fabrics.eyebrow }}</span>
+    <h2 class="h2" style="margin-top:14px">{{ h.fabrics.title }}</h2>
+    <span class="gbar"></span>
+    <div class="duo">
+      <article class="panel">
+        <div class="frame"><img src="{{ h.fabrics.fabricImage | u }}" alt="Fabric rolls" data-par loading="lazy"></div>
+        <div class="body">
+          <h3 class="eyebrow">{{ h.fabrics.fabricLabel }}</h3>
+          <p>{{ h.fabrics.fabricText }}</p>
+          <div class="mats">{% for m in h.fabrics.materials %}<span class="mat">{{ m }}</span>{% endfor %}</div>
+          <div class="routes">{% for r in h.fabrics.routes %}<div><b>{{ r.title }}</b><small>{{ r.text }}</small></div>{% endfor %}</div>
+          <p class="eco">{{ icon("leaf") | safe }}<span>{{ h.fabrics.sustainability }}</span></p>
+        </div>
+      </article>
+      <article class="panel">
+        <div class="frame"><img src="{{ h.fabrics.trimsImage | u }}" alt="Thread cones and trims" data-par loading="lazy"></div>
+        <div class="body">
+          <h3 class="eyebrow">{{ h.fabrics.trimsLabel }}</h3>
+          <p>{{ h.fabrics.trimsText }}</p>
+          <div class="chips">{% for t in h.fabrics.trims %}<span class="chip">{{ t }}</span>{% endfor %}</div>
+          <span class="eyebrow" style="color:var(--blue)">{{ h.fabrics.checksLabel }}</span>
+          <div class="checks">{% for c in h.fabrics.checks %}<div><small>{{ (loop.index) | pad2 }}</small>{{ c }}</div>{% endfor %}</div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="printing" style="background:var(--ink)">
+  <div class="wrap">
+    <div class="printhead">
+      <div><span class="eyebrow">{{ h.printing.eyebrow }}</span><h2 class="h2" style="margin-top:14px">{{ h.printing.titleStart }} <span class="script">{{ h.printing.titleScript }}</span></h2><span class="gbar"></span></div>
+      <p class="lead muted" style="max-width:44ch">{{ h.printing.text }}</p>
+    </div>
+    <div class="prints" id="prints">
+      {%- for t in h.printing.techniques %}
+      <button class="pt{% if t.size == 'wide' %} wide{% elif t.size == 'tall' %} tall{% endif %}" data-cursor data-tech="{{ loop.index0 }}"><img src="{{ t.image | u }}" alt="{{ t.imageAlt }}" loading="lazy"{% if t.size == 'wide' %} style="object-position:50% 38%"{% endif %}><span class="cap"><b>{{ t.name }}</b><small>{{ t.caption }}</small></span></button>
+      {%- endfor %}
+      <div class="pt mix"><b>+</b><p>{{ h.printing.mixText }}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="embroidery" style="background:var(--ink-2)">
+  <div class="wrap">
+    <span class="eyebrow">{{ h.embroidery.eyebrow }}</span>
+    <h2 class="h2" style="margin-top:14px">{{ h.embroidery.titleStart }} <span class="script">{{ h.embroidery.titleScript }}</span></h2>
+    <span class="gbar"></span>
+    <p class="lead muted" style="margin-top:22px">{{ h.embroidery.text }}</p>
+    <div class="emb">
+      <ol>{% for e in h.embroidery.types %}<li><span class="n">{{ (loop.index) | pad2 }}</span><b>{{ e.title }}</b><small>{{ e.text }}</small></li>{% endfor %}</ol>
+      <div class="embgal">
+        {%- for g in h.embroidery.gallery %}
+        <figure data-speed="{% if loop.index % 2 %}-0.06{% else %}0.06{% endif %}"><div class="frame"><img src="{{ g.image | u }}" alt="{{ g.alt }}" data-par loading="lazy"></div><figcaption>{{ g.caption }}</figcaption></figure>
+        {%- endfor %}
+        <div class="combo"><span>+</span>{{ h.embroidery.comboText }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light pad" id="partners">
+  <div class="wrap">
+    <span class="eyebrow">{{ h.partners.eyebrow }}</span>
+    <h2 class="h2" style="margin-top:14px">{{ h.partners.title }}</h2>
+    <span class="gbar"></span>
+  </div>
+  {%- for row in [h.partners.rowOne, h.partners.rowTwo] %}
+  <div class="logos{% if loop.index == 2 %} rev{% endif %}"><div class="track">
+    {%- for rep in [1,2] %}{% for l in row %}<div class="lg"{% if rep == 2 %} aria-hidden="true"{% endif %}><img src="{{ l.logo | u }}" alt="{% if rep == 1 %}{{ l.name }}{% endif %}" loading="lazy"></div>{% endfor %}{% endfor %}
+  </div></div>
+  {%- endfor %}
+</section>
+
+<!-- 03 HOW WE WORK -->
+{{ chapter("work", h.chapters.work) }}
+
+<section class="hs" id="process">
+  <div class="wrap head">
+    <span class="eyebrow">{{ h.process.eyebrow }}</span>
+    <h2 class="h2" style="margin-top:14px">{{ h.process.title }}</h2>
+    <span class="gbar"></span>
+  </div>
+  <div class="hs-track" id="hsTrack">
+    <article class="stage intro"><div><span class="eyebrow" style="color:#ff6fbd">{{ h.process.introLabel }}</span><h3 class="h3" style="margin-top:16px;font-family:var(--f-display);font-weight:400">{{ h.process.introTitle }}</h3></div><div class="phases"><span class="chip" style="color:#C9C9D1">Plan</span><span class="chip b">Develop</span><span class="chip m">Produce &amp; deliver</span></div><p>{{ h.process.introHint }}</p></article>
+    {%- for s in h.process.stages %}
+    <article class="stage" data-phase="{{ s.phase }}"><i class="bar"></i><span class="phase">{{ s.phase }}</span><h3>{{ s.title }}</h3><p>{{ s.text }}</p><span class="n">{{ (loop.index) | pad2 }}</span></article>
+    {%- endfor %}
+  </div>
+  <div class="hs-prog"><i id="hsProg"></i></div>
+</section>
+
+<section class="pad" id="timelines" style="background:var(--ink)">
+  <div class="wrap">
+    <span class="eyebrow">{{ h.timelines.eyebrow }}</span>
+    <h2 class="h2" style="margin-top:14px">{{ h.timelines.title }}</h2>
+    <span class="gbar"></span>
+    <div class="times">
+      {%- for g in h.timelines.groups %}
+      <div class="tgroup">
+        <h3>{{ g.title }}</h3>
+        {%- for r in g.rows %}
+        <div class="trow"><div class="top"><span>{{ r.label }}</span><b>{{ r.value }}<small>{{ r.unit }}</small></b></div><div class="track-bar" data-n="{{ r.value }}" data-of="{{ g.rows | maxval }}"></div></div>
+        {%- endfor %}
+      </div>
+      {%- endfor %}
+    </div>
+    <div class="tnote">{% for n in h.timelines.notes %}<p>{{ n }}</p>{% endfor %}</div>
+  </div>
+</section>
+
+<section class="light pad" id="gates">
+  <div class="wrap">
+    <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-end">
+      <div><span class="eyebrow">{{ h.gates.eyebrow }}</span><h2 class="h2" style="margin-top:14px">{{ h.gates.title }}</h2><span class="gbar"></span></div>
+      <span class="qcbadge">{{ h.gates.badgeLabel }} <b>{{ h.gates.badgeValue }}</b></span>
+    </div>
+    <div class="gates-line" aria-hidden="true">
+      <div class="rail"><i id="gateRail"></i></div>
+      <span class="lbl" style="left:0">Sample</span><span class="lbl" style="left:28%">Line start</span><span class="lbl" style="left:46%">10–20%</span><span class="lbl" style="right:0">Receipt</span>
+      <span class="gate-dot" style="left:6%" data-g="0">01</span>
+      <span class="gate-dot" style="left:30%" data-g="1">02</span>
+      <span class="gate-dot" style="left:50%" data-g="2">03</span>
+      <span class="gate-dot" style="left:94%" data-g="3">04</span>
+    </div>
+    <div class="gate-panel" role="tablist" aria-label="Quality gates">
+      {%- for g in h.gates.items %}
+      <button class="gate{% if loop.first %} on{% endif %}" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-g="{{ loop.index0 }}"><span class="gn">{{ (loop.index) | pad2 }}</span><div class="w" style="margin-top:14px">{{ g.when }}</div><h3>{{ g.title }}</h3><p>{{ g.text }}</p></button>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="light pad" id="standards" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">{{ h.standards.eyebrow }}</span>
+    <h2 class="h2" style="margin-top:14px">{{ h.standards.title }}</h2>
+    <span class="gbar"></span>
+    <p class="lead muted" style="margin-top:22px">{{ h.standards.text }}</p>
+    <div class="aql">
+      {%- for l in h.standards.levels %}
+      <div class="aq"><div class="t">{{ l.label }}</div><b>{{ l.value }}</b><div class="s">{{ l.unit }}</div><div class="meter">{% for i in range(10) %}<i{% if i < l.meter %} class="f"{% endif %}></i>{% endfor %}</div><p>{{ l.text }}</p></div>
+      {%- endfor %}
+    </div>
+    <p class="eyebrow" style="margin-top:40px">{{ h.standards.controlsLabel }}</p>
+    <div class="controls">{% for c in h.standards.controls %}<div>{{ c }}</div>{% endfor %}</div>
+    <p class="fine" style="color:var(--magenta)">{{ h.standards.note }}</p>
+  </div>
+</section>
+
+<section class="pad" id="account" style="background:var(--ink)">
+  <div class="wrap am">
+    <div class="frame"><img src="{{ h.account.image | u }}" alt="{{ h.account.imageAlt }}" data-par loading="lazy">
+      <div class="badge"><span class="eyebrow">{{ h.account.badgeSmall }}</span><b>{{ h.account.badgeTitle }}</b>
+        <div class="chips">{% for g in h.account.guidance %}<span class="chip">{{ g }}</span>{% endfor %}</div>
+      </div>
+    </div>
+    <div>
+      <span class="eyebrow">{{ h.account.eyebrow }}</span>
+      <h2 class="h2" style="margin-top:14px">{{ h.account.title }}</h2>
+      <span class="gbar"></span>
+      <p class="lead muted" style="margin-top:22px">{{ h.account.text }}</p>
+      <div class="vis">{% for v in h.account.visibility %}<div><b>{{ (loop.index) | pad2 }}</b>{{ v }}</div>{% endfor %}</div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 REACH -->
+{{ chapter("reach-open", h.chapters.reach) }}
+
+<section class="light pad" id="reach">
+  <div class="wrap">
+    <span class="eyebrow">{{ h.reach.eyebrow }}</span>
+    <h2 class="h2" style="margin-top:14px">{{ h.reach.titleStart }} <span class="script">{{ h.reach.titleScript }}</span></h2>
+    <span class="gbar"></span>
+    <div class="reach">
+      <div>
+        <div class="map" id="map">
+          <img src="{{ '/assets/img/map.webp' | u }}" alt="Map showing Egypt with routes to Libya, Saudi Arabia and the GCC" width="1232" height="693" loading="lazy">
+          <svg viewBox="0 0 1232 693" preserveAspectRatio="none" aria-hidden="true">
+            <path class="arc" d="M543 180 Q410 60 283 127"/>
+            <path class="arc" d="M543 180 Q730 120 906 317"/>
+            <path class="arc" d="M543 180 Q850 20 1107 301"/>
+            <circle class="pulse" cx="543" cy="180" r="16"/><circle class="ping hub" cx="543" cy="180" r="7"/>
+            <circle class="ping" cx="283" cy="127" r="5.5"/><circle class="ping" cx="906" cy="317" r="5.5"/><circle class="ping" cx="1107" cy="301" r="5.5"/>
+            <circle class="portdot" cx="570" cy="189" r="4.5"/><circle class="portdot" cx="607" cy="262" r="4.5"/>
+          </svg>
+          <span class="port" style="left:46.3%;top:25.5%">Sokhna</span>
+          <span class="port right" style="left:49.3%;top:37.8%">Safaga</span>
+        </div>
+        <p class="mapnote">{{ h.reach.mapNote }}</p>
+      </div>
+      <div>
+        <div class="switch" role="group" aria-label="Client location">
+          <span class="pill" id="reachPill"></span>
+          <button type="button" id="reachA" aria-pressed="true">{{ h.reach.localTab }}</button>
+          <button type="button" id="reachB" aria-pressed="false">{{ h.reach.regionalTab }}</button>
+        </div>
+        <div class="rpanel" id="rLocal"><h3>{{ h.reach.localTitle }}</h3><p>{{ h.reach.localText }}</p></div>
+        <div class="rpanel" id="rRegional" hidden><h3>{{ h.reach.regionalTitle }}</h3><p>{{ h.reach.regionalText }}</p></div>
+        <div class="ship"><h4>{{ h.reach.shippingTitle }}</h4><p>{{ h.reach.shippingText }}</p><p class="fine">{{ h.reach.shippingNote }}</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="portfolio" style="background:var(--ink);padding-bottom:clamp(60px,8vw,110px)">
+  <div class="wrap">
+    <span class="eyebrow">{{ h.portfolioIntro.eyebrow }}</span>
+    <h2 class="h2" style="margin-top:14px">{{ h.portfolioIntro.titleStart }} <span class="script">{{ h.portfolioIntro.titleScript }}</span></h2>
+    <span class="gbar"></span>
+  </div>
+  <div class="cats" id="cats">
+    {%- for c in portfolio.categories %}
+    <button class="cat" data-cursor data-cat="{{ c.id }}"><img src="{{ c.image | u }}" alt="{{ c.name }}" loading="lazy"><span class="ct"><small>{{ (loop.index) | pad2 }}</small><b>{{ c.name }}</b><span>{{ c.description }}</span></span></button>
+    {%- endfor %}
+  </div>
+  <div class="wrap">
+    <div class="filters" id="filters" role="group" aria-label="Filter work">
+      <button type="button" aria-pressed="true" data-f="all">All work<sup>{{ portfolio.items.length }}</sup></button>
+      {%- for c in portfolio.categories %}
+      <button type="button" aria-pressed="false" data-f="{{ c.id }}">{{ c.name }}<sup>{{ portfolio.items | countCat(c.id) }}</sup></button>
+      {%- endfor %}
+    </div>
+    <div class="grid" id="grid">
+      {%- for w in portfolio.items %}
+      <button class="item" data-cursor data-i="{{ loop.index0 }}" data-c="{{ w.category }}"><img src="{{ w.images[0] | u }}" alt="{{ w.brand }} {{ w.product }}" loading="lazy"><span class="meta"><small>{{ w.brand }}</small><b>{{ w.product }}</b></span></button>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="light pad" id="faq">
+  <div class="wrap faqwrap">
+    <div class="faqhead">
+      <span class="eyebrow">{{ h.faq.eyebrow }}</span>
+      <h2 class="h2" style="margin-top:14px">{{ h.faq.title }}</h2>
+      <span class="gbar"></span>
+      <a class="btn" href="{{ '/start/' | u }}" style="margin-top:32px">{{ h.hero.ctaPrimary }} {{ icon("arrow") | safe }}</a>
+    </div>
+    <div class="faqlist">
+      {%- for f in h.faq.items %}
+      <details{% if loop.first %} open{% endif %}><summary><h3>{{ f.q }}</h3><span class="pm" aria-hidden="true"></span></summary><p>{{ f.a }}</p></details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="start-band">
+  <div class="bg" style="background-image:url({{ start.image | u }})" data-speed="0.2"></div>
+  <div class="wrap">
+    <span class="eyebrow">{{ start.eyebrow }}</span>
+    <h2><span class="script">{{ start.titleScript }}</span> {{ start.titleRest }}</h2>
+    <p>{{ h.ctaBand.text }}</p>
+    <a class="btn" href="{{ '/start/' | u }}">{{ h.ctaBand.button }} {{ icon("arrow") | safe }}</a>
+  </div>
+</section>
+
+<!-- lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
+  <button class="ib close" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="stagebox"><div><img id="lbImg" alt=""><div class="thumbs" id="lbThumbs"></div></div></div>
+  <div class="info">
+    <span class="eyebrow" id="lbCat"></span>
+    <h3 id="lbTitle"></h3>
+    <span class="by" id="lbBy"></span>
+    <p id="lbText"></p>
+    <div class="chips" id="lbTags"></div>
+    <div class="navs"><button class="ib" id="lbPrev" aria-label="Previous piece"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button><button class="ib" id="lbNext" aria-label="Next piece"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button><span class="count" id="lbCount" style="align-self:center;margin-left:8px"></span></div>
+  </div>
+</div>
+
+<script type="application/json" id="site-data">{{ {
+  categories: portfolio.categories,
+  items: portfolio.items,
+  techniques: h.printing.techniques,
+  relative: env.artifact,
+  prefix: env.prefix
+} | dump | safe }}</script>

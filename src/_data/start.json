@@ -1,0 +1,88 @@
+{
+  "seo": {
+    "title": "Start a Feasibility Review | Apparate Apparel Manufacturing Egypt",
+    "description": "Send Apparate your apparel brief: product, quantity, fabric, printing, delivery date. An account manager reviews feasibility, sourcing route and risks.",
+    "image": "/assets/img/image50.webp"
+  },
+  "eyebrow": "Let's build a long-term partnership",
+  "titleScript": "Start",
+  "titleRest": "with a feasibility review",
+  "text": "An experienced apparel account manager will review the brief, identify the manufacturing and sourcing route, highlight key risks, and confirm the next step. Build your brief below and send it to us.",
+  "image": "/assets/img/image50.webp",
+  "steps": [
+    {
+      "title": "Share your brief",
+      "text": "Product, quantity, fabric, printing and target date."
+    },
+    {
+      "title": "Feasibility review",
+      "text": "Manufacturing and sourcing route, risks and timing."
+    },
+    {
+      "title": "Costing & sampling",
+      "text": "Confirmed scope, then development and sample approval."
+    }
+  ],
+  "formTitle": "Share with us",
+  "labels": {
+    "name": "Your name",
+    "company": "Brand / company",
+    "product": "Product reference or technical design",
+    "category": "Category",
+    "quantity": "Quantity & colors",
+    "fabric": "Fabric requirements",
+    "printing": "Printing & embroidery",
+    "accessories": "Accessories to make your product stand out",
+    "upload": "Upload your idea",
+    "date": "Target delivery date",
+    "destination": "Destination",
+    "notes": "Anything else"
+  },
+  "placeholders": {
+    "name": "e.g. Nour Hassan",
+    "company": "e.g. Nile Studio",
+    "product": "e.g. Oversized heavyweight T-shirt, tech pack ready",
+    "quantity": "e.g. 600 pcs · 3 colors",
+    "accessories": "e.g. Woven labels, custom zipper pulls, hang tags, branded packaging",
+    "notes": "Target price, references, packaging needs…"
+  },
+  "categories": [
+    "Sportswear",
+    "Knitwear",
+    "Everyday & lifestyle",
+    "Outerwear",
+    "Baby & kids",
+    "Scarves & textile accessories",
+    "Uniforms / corporate"
+  ],
+  "fabricOptions": [
+    "Knitted",
+    "Woven",
+    "Denim",
+    "Need advice"
+  ],
+  "printingOptions": [
+    "DTF",
+    "DTG",
+    "Silk screen",
+    "Sublimation",
+    "Silicone",
+    "Rubber",
+    "Vinyl",
+    "Embroidery"
+  ],
+  "destinations": [
+    "Egypt (local delivery)",
+    "Saudi Arabia",
+    "GCC",
+    "Libya",
+    "Other"
+  ],
+  "uploadTitle": "Drop sketches, tech packs or reference photos",
+  "uploadHint": "or click to browse · images, PDF, AI, PSD or ZIP",
+  "uploadNote": "Your files stay on your device. Attach them to your WhatsApp message or email when you send the brief.",
+  "briefHeading": "Your brief",
+  "whatsappButton": "Send on WhatsApp",
+  "emailButton": "Send by email",
+  "copyButton": "Copy brief"
+}

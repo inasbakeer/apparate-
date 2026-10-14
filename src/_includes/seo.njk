@@ -1,0 +1,97 @@
+{%- if seoKey == "start" %}{% set seo = start.seo %}{% else %}{% set seo = home.seo %}{% set faqItems = home.faq.items %}{% endif -%}
+{%- set pageUrl = site.url + page.url -%}
+{%- set shareImg = site.url + (seo.image or site.shareImage) -%}
+<title>{{ seo.title }}</title>
+<meta name="description" content="{{ seo.description }}">
+<link rel="canonical" href="{{ pageUrl }}">
+<meta name="robots" content="{{ 'noindex, nofollow' if (noindex or env.test) else 'index, follow, max-image-preview:large, max-snippet:-1' }}">
+<meta name="author" content="{{ site.name }}">
+<meta name="theme-color" content="#0E0E12">
+<link rel="alternate" hreflang="en" href="{{ pageUrl }}">
+<link rel="alternate" hreflang="x-default" href="{{ pageUrl }}">
+<meta name="geo.region" content="EG-C">
+<meta name="geo.placename" content="{{ site.address.locality }}, {{ site.address.countryName }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="{{ site.locale }}">
+<meta property="og:title" content="{{ seo.title }}">
+<meta property="og:description" content="{{ seo.description }}">
+<meta property="og:url" content="{{ pageUrl }}">
+<meta property="og:image" content="{{ shareImg }}">
+<meta property="og:image:alt" content="{{ site.tagline }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seo.title }}">
+<meta name="twitter:description" content="{{ seo.description }}">
+<meta name="twitter:image" content="{{ shareImg }}">
+<link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | u }}">
+<link rel="apple-touch-icon" href="{{ '/assets/img/favicon.png' | u }}">
+{%- set orgId = site.url + "/#organization" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "LocalBusiness"],
+      "@id": "{{ orgId }}",
+      "name": {{ site.name | dump | safe }},
+      "legalName": {{ site.legalName | dump | safe }},
+      "url": "{{ site.url }}/",
+      "logo": "{{ site.url }}{{ site.logo }}",
+      "image": "{{ site.url }}{{ site.shareImage }}",
+      "slogan": {{ site.tagline | dump | safe }},
+      "description": {{ site.description | dump | safe }},
+      "foundingDate": "{{ site.foundingYear }}",
+      "email": "{{ site.email }}",
+      "telephone": "{{ site.phone | replace(' ', '') }}",
+      "address": { "@type": "PostalAddress", "addressLocality": {{ site.address.locality | dump | safe }}, "addressRegion": {{ site.address.region | dump | safe }}, "addressCountry": "{{ site.address.country }}" },
+      "areaServed": {{ site.areaServed | dump | safe }},
+      "knowsAbout": ["Apparel manufacturing", "Garment quality assurance", "AQL inspection", "Knitwear", "Sportswear", "Kidswear", "Outerwear", "Printed scarves", "DTF printing", "Sublimation printing", "Silk screen printing", "Embroidery", "Private label clothing", "Fabric sourcing"],
+      "contactPoint": [{ "@type": "ContactPoint", "contactType": "sales", "telephone": "{{ site.phone | replace(' ', '') }}", "email": "{{ site.email }}", "areaServed": {{ site.areaServed | dump | safe }}, "availableLanguage": ["English", "Arabic"], "url": "https://wa.me/{{ site.whatsapp }}" }],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Apparel manufacturing services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "End-to-end apparel manufacturing", "description": "From brief and feasibility to sampling, bulk production and delivery through 50+ specialized factories in Egypt. MOQ 100 pieces per color, up to 50,000 pieces per month." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Apparel quality assurance", "description": "Four quality gates and AQL-based final inspection: zero critical defects, AQL 2.5 major, AQL 4.0 minor." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Garment printing", "description": "DTF, DTG, rubber, vinyl, sublimation, silicone and silk screen printing." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Garment embroidery", "description": "Flat, 3D puff, appliqué, patches, chenille, sequins and specialty threads." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fabric and trims sourcing", "description": "Knitted, woven and denim fabrics and trims sourced in Egypt or from selected suppliers in China." } }
+        ]
+      }{% if site.social and site.social.length %},
+      "sameAs": {{ site.social | dump | safe }}{% endif %}
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": {{ site.name | dump | safe }},
+      "inLanguage": "{{ site.language }}",
+      "publisher": { "@id": "{{ orgId }}" }
+    },
+    {
+      "@type": {{ (pageType or "WebPage") | dump | safe }},
+      "@id": "{{ pageUrl }}#webpage",
+      "url": "{{ pageUrl }}",
+      "name": {{ seo.title | dump | safe }},
+      "description": {{ seo.description | dump | safe }},
+      "inLanguage": "{{ site.language }}",
+      "isPartOf": { "@id": "{{ site.url }}/#website" },
+      "about": { "@id": "{{ orgId }}" },
+      "primaryImageOfPage": "{{ shareImg }}"
+    }{% if faqItems %},
+    {
+      "@type": "FAQPage",
+      "@id": "{{ pageUrl }}#faq",
+      "mainEntity": [{% for f in faqItems %}
+        { "@type": "Question", "name": {{ f.q | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | dump | safe }} } }{% if not loop.last %},{% endif %}{% endfor %}
+      ]
+    }{% endif %}{% if breadcrumb %},
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [{% for b in breadcrumb %}
+        { "@type": "ListItem", "position": {{ loop.index }}, "name": {{ b.name | dump | safe }}, "item": "{{ site.url }}{{ b.url }}" }{% if not loop.last %},{% endif %}{% endfor %}
+      ]
+    }{% endif %}
+  ]
+}
+</script>

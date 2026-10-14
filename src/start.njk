@@ -1,0 +1,75 @@
+---
+layout: base.njk
+pageClass: start
+seoKey: start
+pageType: ContactPage
+permalink: "{{ '/start.html' if env.artifact else '/start/' }}"
+breadcrumb:
+  - name: Home
+    url: /
+  - name: Start a feasibility review
+    url: /start/
+---
+{%- from "icons.njk" import icon -%}
+{%- set s = start -%}
+{%- set L = s.labels -%}
+{%- set Ph = s.placeholders -%}
+<section class="cta pad startpage" id="start">
+  <div class="bg" style="background-image:url({{ s.image | u }})" data-speed="0.2"></div>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="{{ '/' | u }}">Home</a><span aria-hidden="true">/</span><span aria-current="page">Start a feasibility review</span></nav>
+    <span class="eyebrow">{{ s.eyebrow }}</span>
+    <h1 style="margin-top:16px"><span class="script">{{ s.titleScript }}</span> {{ s.titleRest }}</h1>
+    <p class="lead" style="margin-top:22px;color:#d0d0da">{{ s.text }}</p>
+    <ol class="steps">
+      {%- for st in s.steps %}
+      <li><span class="n">{{ (loop.index) | pad2 }}</span><div><b>{{ st.title }}</b><small>{{ st.text }}</small></div></li>
+      {%- endfor %}
+    </ol>
+    <div class="brief">
+      <form class="form" id="briefForm" autocomplete="on">
+        <h2 class="formh">{{ s.formTitle }}</h2>
+        <div class="fgrid">
+          <div class="field"><label for="f-name">{{ L.name }}</label><input id="f-name" name="name" placeholder="{{ Ph.name }}"></div>
+          <div class="field"><label for="f-co">{{ L.company }}</label><input id="f-co" name="company" placeholder="{{ Ph.company }}"></div>
+          <div class="field full"><label for="f-prod">{{ L.product }}</label><input id="f-prod" name="product" placeholder="{{ Ph.product }}"></div>
+          <div class="field"><label for="f-cat">{{ L.category }}</label><select id="f-cat" name="category">{% for c in s.categories %}<option{% if loop.index == 3 %} selected{% endif %}>{{ c }}</option>{% endfor %}</select></div>
+          <div class="field"><label for="f-qty">{{ L.quantity }}</label><input id="f-qty" name="qty" placeholder="{{ Ph.quantity }}"></div>
+          <div class="field full"><span class="flabel" id="lbl-fabric">{{ L.fabric }}</span><div class="togs" id="t-fabric" role="group" aria-labelledby="lbl-fabric">
+            {%- for o in s.fabricOptions %}<label><input type="checkbox" value="{{ o }}"><span>{{ o }}</span></label>{% endfor %}</div></div>
+          <div class="field full"><span class="flabel" id="lbl-print">{{ L.printing }}</span><div class="togs" id="t-brand" role="group" aria-labelledby="lbl-print">
+            {%- for o in s.printingOptions %}<label><input type="checkbox" value="{{ o }}"><span>{{ o }}</span></label>{% endfor %}</div></div>
+          <div class="field full"><label for="f-fin">{{ L.accessories }}</label><input id="f-fin" name="finishing" placeholder="{{ Ph.accessories }}"></div>
+          <div class="field full"><span class="flabel">{{ L.upload }}</span>
+            <label class="drop" id="drop" for="f-files">
+              {{ icon("upload") | safe }}
+              <span><b>{{ s.uploadTitle }}</b><small>{{ s.uploadHint }}</small></span>
+            </label>
+            <input id="f-files" class="sr" type="file" multiple accept="image/*,.pdf,.ai,.psd,.zip">
+            <div class="ups" id="ups" data-note="{{ s.uploadNote }}"></div>
+          </div>
+          <div class="field"><label for="f-date">{{ L.date }}</label><input id="f-date" name="date" type="date"></div>
+          <div class="field"><label for="f-dest">{{ L.destination }}</label><select id="f-dest" name="destination">{% for d in s.destinations %}<option>{{ d }}</option>{% endfor %}</select></div>
+          <div class="field full"><label for="f-notes">{{ L.notes }}</label><textarea id="f-notes" name="notes" placeholder="{{ Ph.notes }}"></textarea></div>
+        </div>
+      </form>
+      <aside class="preview" aria-live="polite">
+        <div class="meterwrap"><span class="eyebrow">{{ s.briefHeading }}</span><span id="pmTxt" class="tabular">0 of 7 brief items</span></div>
+        <div class="pm"><i id="pm"></i></div>
+        <pre id="briefOut"></pre>
+        <div class="acts">
+          <button type="button" class="btn dark" id="copyBrief">{{ s.copyButton }}</button>
+          <a class="btn wa" id="waBrief" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">{{ icon("whatsapp") | safe }}{{ s.whatsappButton }}</a>
+          <a class="btn line" id="mailBrief" href="mailto:{{ site.email }}">{{ icon("mail") | safe }}{{ s.emailButton }}</a>
+        </div>
+        <div class="toast" id="toast"></div>
+      </aside>
+    </div>
+    <div class="contact">
+      <div><a class="ico wa" href="https://wa.me/{{ site.whatsapp }}?text={{ site.whatsappMessage | urlencode }}" target="_blank" rel="noopener" aria-label="Chat with {{ site.name }} on WhatsApp">{{ icon("whatsapp") | safe }}</a><span class="ct"><small>Phone · WhatsApp</small><b>{{ site.phone }}</b></span><button type="button" data-copy="{{ site.phone }}">Copy</button></div>
+      <div><a class="ico" href="mailto:{{ site.email }}?subject=Feasibility%20review" aria-label="Email {{ site.name }}">{{ icon("mail") | safe }}</a><span class="ct"><small>Email</small><b>{{ site.email }}</b></span><button type="button" data-copy="{{ site.email }}">Copy</button></div>
+      <div><span class="ico plain">{{ icon("pin") | safe }}</span><span class="ct"><small>Office</small><b>{{ site.address.locality }}, {{ site.address.countryName }}</b></span></div>
+    </div>
+  </div>
+</section>
+<script type="application/json" id="brief-data">{{ { whatsapp: site.whatsapp, email: site.email } | dump | safe }}</script>

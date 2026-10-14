@@ -1,0 +1,47 @@
+# Publishes a TEST copy of the website to GitHub Pages on every change to main.
+# Address: https://<github-user>.github.io/<repository-name>/
+# The test copy is hidden from Google (noindex + robots.txt). The real site goes on apparate.net via Netlify.
+name: Test site (GitHub Pages)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build test copy
+        run: npm run build
+        env:
+          PATH_PREFIX: /${{ github.event.repository.name }}
+          TEST_SITE: "1"
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

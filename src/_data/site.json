@@ -1,0 +1,36 @@
+{
+  "name": "Apparate",
+  "legalName": "Apparate",
+  "url": "https://apparate.net",
+  "language": "en",
+  "locale": "en_EG",
+  "tagline": "Your apparel: managed, manufactured, and protected.",
+  "description": "Apparate is an end-to-end apparel manufacturing and quality-assurance partner in Egypt for local and regional brands. 50+ specialized factories, up to 50,000 pieces a month, 100-piece minimums, four quality gates and AQL inspection.",
+  "foundingYear": "2019",
+  "logo": "/assets/img/image2.webp",
+  "logoDark": "/assets/img/image114.webp",
+  "shareImage": "/assets/img/image1.webp",
+  "phone": "+20 150 041 1000",
+  "whatsapp": "201500411000",
+  "whatsappMessage": "Hello Apparate, I'd like a feasibility review.",
+  "email": "m.fouad@apparate.net",
+  "address": {
+    "locality": "New Cairo",
+    "region": "Cairo Governorate",
+    "country": "EG",
+    "countryName": "Egypt"
+  },
+  "factory": "Funky Treko knitwear factory, Salamoun El-Qamash, Dakahlia, Egypt",
+  "areaServed": ["Egypt", "Saudi Arabia", "United Arab Emirates", "Kuwait", "Qatar", "Bahrain", "Oman", "Libya"],
+  "social": [],
+  "nav": [
+    { "label": "Who we are", "href": "/#who" },
+    { "label": "What we make", "href": "/#make" },
+    { "label": "How we work", "href": "/#work" },
+    { "label": "Our reach", "href": "/#reach" },
+    { "label": "Portfolio", "href": "/#portfolio" },
+    { "label": "FAQ", "href": "/#faq" }
+  ],
+  "navCta": "Start a feasibility review",
+  "footerNote": "© 2026 Apparate · New Cairo, Egypt · Apparel manufacturing and quality assurance since 2019"
+}

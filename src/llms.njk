@@ -1,0 +1,40 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# {{ site.name | safe }}
+
+> {{ site.description | safe }}
+
+{{ site.name | safe }} is an apparel manufacturing and quality-assurance company based in {{ site.address.locality | safe }}, {{ site.address.countryName | safe }}, founded in {{ site.foundingYear | safe }}. It grew out of more than 20 years of manufacturing experience at the {{ site.factory | safe }}. Tagline: "{{ site.tagline | safe }}"
+
+## Key facts
+- Service: end-to-end apparel manufacturing and quality assurance for local (Egypt) and regional (Saudi Arabia, GCC, Libya) clients, managed by one accountable team.
+- Network: 50+ specialized production partners in Egypt.
+- Capacity: up to 50,000 pieces per month.
+- Minimum order: 100 pieces per color (confirmed per project).
+- Sampling: initial sample about 5 working days; pre-production sample about 3 working days.
+- Bulk production: about 4 weeks standard, about 5 weeks in peak season.
+- Quality: four quality gates (sample, first piece, inline at 10–20% of production, final). Final AQL inspection: zero critical defects, AQL 2.5 major, AQL 4.0 minor.
+- Fabrics: knitted, woven and denim; sourced in Egypt, from trusted local suppliers, or selected suppliers in China.
+- Printing: {% for t in home.printing.techniques %}{{ t.name | safe }}{% if not loop.last %}, {% endif %}{% endfor %}.
+- Embroidery: {% for e in home.embroidery.types %}{{ e.title | safe }}{% if not loop.last %}, {% endif %}{% endfor %}.
+- Product categories: {% for c in portfolio.categories %}{{ c.name | safe }}{% if not loop.last %}, {% endif %}{% endfor %}.
+- Clients served: {% for s in home.purpose.serve %}{{ s | safe }}{% if not loop.last %}, {% endif %}{% endfor %}.
+- Brands worked with: {% for l in home.partners.rowOne %}{{ l.name | safe }}, {% endfor %}{% for l in home.partners.rowTwo %}{{ l.name | safe }}{% if not loop.last %}, {% endif %}{% endfor %}.
+- Regional delivery: FOB handover in Egypt; Saudi and GCC shipments mainly by sea via Sokhna or Safaga ports.
+
+## Contact
+- Phone / WhatsApp: {{ site.phone | safe }} (https://wa.me/{{ site.whatsapp | safe }})
+- Email: {{ site.email | safe }}
+- Office: {{ site.address.locality | safe }}, {{ site.address.countryName | safe }}
+
+## Pages
+- [Home]({{ site.url | safe }}/): services, process, quality standards, portfolio and FAQ
+- [Start a feasibility review]({{ site.url | safe }}/start/): send a brief (product, quantity, fabric, printing and embroidery, accessories, delivery date, destination)
+
+## FAQ
+{% for f in home.faq.items %}
+### {{ f.q | safe }}
+{{ f.a | safe }}
+{% endfor %}

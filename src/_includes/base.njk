@@ -1,0 +1,83 @@
+{%- set bare = env.artifact and page.url == "/" -%}
+{%- if not bare %}<!doctype html>
+<html lang="{{ site.language }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{%- endif %}
+{% include "seo.njk" %}
+<style>
+/* critical: brand loader paints before the main stylesheet arrives */
+html,body{background:#0E0E12}
+#loader{position:fixed;inset:0;z-index:100;background:#0E0E12;display:grid;place-items:center;transition:opacity .6s cubic-bezier(.2,.7,.1,1),visibility .6s}
+#loader.done{opacity:0;visibility:hidden}
+#loader .lmark{width:150px;height:auto;display:block;margin:0 auto}
+#loader .lbar{width:180px;height:2px;background:#2E2E36;margin:26px auto 0;overflow:hidden}
+#loader .lbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#E2198B,#8A55D6,#0A86FF);transition:width .25s}
+#loader .lt{font:600 11px/1.4 Inter,system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#9A9AA3;text-align:center;margin-top:14px}
+</style>
+{%- if pageClass == "home" %}
+<link rel="preload" as="image" href="{{ home.hero.image | u }}" fetchpriority="high">
+{%- endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anta&family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="preload" href="{{ '/assets/fonts/belantica.woff' | u }}" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | u }}">
+{%- if not bare %}
+</head>
+<body class="page-{{ pageClass }}">
+{%- else %}
+<script>document.body.classList.add("page-{{ pageClass }}");</script>
+{%- endif %}
+<a class="skip" href="#main">Skip to content</a>
+<div id="loader" aria-hidden="true">
+  <div>
+    <img class="lmark" src="{{ site.logo | u }}" alt="" width="150" height="112">
+    <div class="lbar"><i id="lbar"></i></div>
+    <div class="lt">Inspecting <span id="lpct" class="tabular">0</span>%</div>
+  </div>
+</div>
+<div id="progress"></div>
+<div class="cursor" id="cursor"><span>View</span></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="{{ '/' | u }}" aria-label="{{ site.name }} home"><img src="{{ site.logo | u }}" alt="{{ site.name }}" width="54" height="40"></a>
+    <nav aria-label="Main">
+      <ul>
+        {%- for n in site.nav %}
+        <li><a href="{{ n.href | u(page.url) }}">{{ n.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+    <a class="btn" href="{{ '/start/' | u }}">{{ site.navCta }}</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+<div class="mnav" id="mnav">
+  {%- for n in site.nav %}
+  <a href="{{ n.href | u(page.url) }}"><small>{{ (loop.index) | pad2 }}</small>{{ n.label }}</a>
+  {%- endfor %}
+  <a href="{{ '/start/' | u }}"><small>{{ (site.nav.length + 1) | pad2 }}</small>Let's start</a>
+</div>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="{{ site.logo | u }}" alt="{{ site.name }}" width="59" height="44" loading="lazy">
+    <span class="tag">{{ site.tagline }}</span>
+    <p>{{ site.footerNote }}</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="{{ '/assets/js/site.js' | u }}" defer></script>
+{%- if not bare %}
+</body>
+</html>
+{%- endif %}

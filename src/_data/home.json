@@ -1,0 +1,841 @@
+{
+  "seo": {
+    "title": "Apparate | Apparel Manufacturing & Quality Assurance Partner in Egypt",
+    "description": "Apparel manufacturing in Egypt for local, Saudi and GCC brands: 50+ specialized factories, MOQ 100 pcs per color, up to 50,000 pcs/month, AQL inspection.",
+    "image": "/assets/img/image1.webp"
+  },
+  "hero": {
+    "eyebrow": "Apparel manufacturing & quality assurance",
+    "chip": "Egypt / Local & regional clients",
+    "script": "Your apparel:",
+    "lines": [
+      "managed,",
+      "manufactured,",
+      "and",
+      "protected."
+    ],
+    "text": "Your end-to-end apparel manufacturing and quality-assurance partner in Egypt. One accountable team from the first brief to final delivery.",
+    "ctaPrimary": "Bring your idea to life",
+    "ctaSecondary": "See our work",
+    "side": "Company profile / 2026",
+    "image": "/assets/img/image1.webp"
+  },
+  "stats": [
+    {
+      "value": 20,
+      "from": 0,
+      "prefix": "",
+      "suffix": "+",
+      "label": "Years of manufacturing experience"
+    },
+    {
+      "value": 2019,
+      "from": 1999,
+      "prefix": "",
+      "suffix": "",
+      "label": "Apparate established",
+      "plain": true
+    },
+    {
+      "value": 50,
+      "from": 0,
+      "prefix": "",
+      "suffix": "+",
+      "label": "Specialized production partners"
+    },
+    {
+      "value": 50000,
+      "from": 0,
+      "prefix": "",
+      "suffix": "",
+      "label": "Pieces per month, up to"
+    },
+    {
+      "value": 100,
+      "from": 0,
+      "prefix": "",
+      "suffix": "",
+      "label": "Minimum order, pieces per color"
+    }
+  ],
+  "chapters": {
+    "who": {
+      "script": "Who",
+      "rest": "we are",
+      "text": "Two decades of manufacturing experience, built into one accountable partner.",
+      "image": "/assets/img/image5.webp",
+      "links": [
+        {
+          "label": "Our story",
+          "href": "#story"
+        },
+        {
+          "label": "The market gap",
+          "href": "#gap"
+        },
+        {
+          "label": "Vision & mission",
+          "href": "#purpose"
+        },
+        {
+          "label": "Core values",
+          "href": "#values"
+        },
+        {
+          "label": "Methodology",
+          "href": "#method"
+        }
+      ]
+    },
+    "make": {
+      "script": "What",
+      "rest": "we make",
+      "text": "Specialized factories, expert material sourcing, and every printing technique your product needs.",
+      "image": "/assets/img/image8.webp",
+      "links": [
+        {
+          "label": "Manufacturing network",
+          "href": "#network"
+        },
+        {
+          "label": "Fabrics & trims",
+          "href": "#fabrics"
+        },
+        {
+          "label": "Printing",
+          "href": "#printing"
+        },
+        {
+          "label": "Embroidery",
+          "href": "#embroidery"
+        },
+        {
+          "label": "Partners",
+          "href": "#partners"
+        }
+      ]
+    },
+    "work": {
+      "script": "How",
+      "rest": "we work",
+      "text": "One journey, one accountable team, with quality built into every stage.",
+      "image": "/assets/img/image51.webp",
+      "links": [
+        {
+          "label": "Process",
+          "href": "#process"
+        },
+        {
+          "label": "Timelines",
+          "href": "#timelines"
+        },
+        {
+          "label": "Quality gates",
+          "href": "#gates"
+        },
+        {
+          "label": "Quality standards",
+          "href": "#standards"
+        },
+        {
+          "label": "Account management",
+          "href": "#account"
+        }
+      ]
+    },
+    "reach": {
+      "script": "Our",
+      "rest": "reach & work",
+      "text": "From Egypt to the region, and the work we deliver.",
+      "image": "/assets/img/image20.webp",
+      "links": [
+        {
+          "label": "Go global",
+          "href": "#reach"
+        },
+        {
+          "label": "Portfolio",
+          "href": "#portfolio"
+        },
+        {
+          "label": "FAQ",
+          "href": "#faq"
+        }
+      ]
+    }
+  },
+  "story": {
+    "eyebrow": "Our story",
+    "title": "Experience shaped our purpose",
+    "image": "/assets/img/story.webp",
+    "imageAlt": "Technician programming a flat knitting machine threaded with magenta and blue yarn",
+    "imageTag": "Funky Treko · Salamoun El-Qamash, Dakahlia",
+    "items": [
+      {
+        "label": "20 years ago",
+        "text": "Our story began with Funky Treko, our knitwear factory in Salamoun El-Qamash, Dakahlia, Egypt.",
+        "big": true
+      },
+      {
+        "label": "What caught our attention",
+        "text": "Working with many brands across local and international markets, we kept meeting the same problem: fragmented suppliers, inconsistent quality, limited visibility, and no single party accountable for the complete journey. Clients felt lost in the complexity of manufacturing and timelines, often unsure exactly what they needed.",
+        "big": false
+      },
+      {
+        "label": "The gap",
+        "text": "No one owning the full journey on the client's side.",
+        "big": true
+      },
+      {
+        "label": "2019 · Apparate is founded",
+        "text": "To close that gap, Apparate brought manufacturing expertise, production management, rigorous quality assurance, and transparent client guidance together through one accountable team.",
+        "big": false
+      }
+    ]
+  },
+  "gap": {
+    "eyebrow": "The accountability gap",
+    "title": "One accountable partner",
+    "problemsTitle": "Problems the market faces",
+    "problems": [
+      "Limited production visibility",
+      "Inconsistent sample-to-bulk quality",
+      "Problems communicated too late",
+      "Unclear ownership of corrective actions",
+      "Greater risk to quality, cost, and delivery"
+    ],
+    "gapTitle": "The market gap",
+    "gapText": "When suppliers, approvals, and quality decisions are managed separately, problems can spread before the client sees them.",
+    "gapStrong": "No single party accountable for the complete journey.",
+    "solutionsEyebrow": "Solutions we deliver",
+    "solutionsTitle": "A Zero Risk mindset",
+    "image": "/assets/img/image6.webp",
+    "imageAlt": "A finished T-shirt protected under a glass shield on the factory floor",
+    "solutions": [
+      {
+        "title": "We guide",
+        "text": "Experienced account managers support decisions."
+      },
+      {
+        "title": "We manage",
+        "text": "Each product is placed with suitable capabilities."
+      },
+      {
+        "title": "We protect",
+        "text": "Quality gates identify and correct issues early."
+      },
+      {
+        "title": "We keep clients informed",
+        "text": "Progress, approvals, risks, and actions stay visible."
+      }
+    ]
+  },
+  "purpose": {
+    "eyebrow": "Our purpose",
+    "titleStart": "Manufacture with",
+    "titleScript": "confidence",
+    "image": "/assets/img/purpose.webp",
+    "vision": "To be Egypt's most trusted apparel manufacturing and quality-assurance partner, and a regional leader in bringing brands' visions to life.",
+    "mission": "To empower local and regional brands through one accountable apparel manufacturing partner, from concept to delivery.",
+    "serveTitle": "Who we serve, not only brands",
+    "serve": [
+      "Fashion brands",
+      "Retail & private label",
+      "Importers",
+      "Uniform suppliers",
+      "Corporate clients",
+      "Factories",
+      "Schools",
+      "Giveaways & advertising"
+    ]
+  },
+  "values": {
+    "eyebrow": "Our core values",
+    "title": "What we stand for",
+    "items": [
+      {
+        "icon": "shield",
+        "title": "Accountability",
+        "text": "Take ownership."
+      },
+      {
+        "icon": "eye",
+        "title": "Transparency",
+        "text": "Stay clear. Communicate openly."
+      },
+      {
+        "icon": "medal",
+        "title": "Quality",
+        "text": "Get it right. Protect the standard."
+      },
+      {
+        "icon": "hand",
+        "title": "Partner first",
+        "text": "The backbone of the client."
+      },
+      {
+        "icon": "rocket",
+        "title": "Proactive",
+        "text": "Anticipate risks and address them early to protect quality, timeline, and cost."
+      }
+    ]
+  },
+  "method": {
+    "eyebrow": "Our methodology",
+    "titleScript": "How",
+    "titleRest": "we deliver",
+    "text": "Our skilled team combines quality, innovation, and technology to deliver reliable value for every brand we work with.",
+    "items": [
+      {
+        "label": "Skilled team",
+        "title": "Experienced account management",
+        "text": "A dedicated apparel account manager guides every decision, from feasibility and costing to approvals and delivery."
+      },
+      {
+        "label": "Technology",
+        "title": "Transparent production visibility",
+        "text": "Clear, on-time updates on status, approvals, quality findings, and every decision you need to make."
+      },
+      {
+        "label": "Innovation",
+        "title": "Specialized manufacturing capabilities",
+        "text": "Each product is matched with a factory that specializes in it, from our network of 50+ production partners."
+      },
+      {
+        "label": "Quality",
+        "title": "Rigorous quality assurance",
+        "text": "Four quality gates and AQL-based final inspection protect the standard from sample to bulk."
+      },
+      {
+        "label": "Reliable value",
+        "title": "A Zero Risk mindset at every stage",
+        "text": "We anticipate challenges, communicate early, and act before problems grow."
+      }
+    ]
+  },
+  "network": {
+    "eyebrow": "Our manufacturing foundation",
+    "title": "Built around the product",
+    "image": "/assets/img/image19.webp",
+    "imageAlt": "Garment production line with workers at sewing stations",
+    "text": "Quality is our priority, and we believe specialization is the key: the factory that focuses on one product delivers the best quality. So we collaborate with leading manufacturers and choose only qualified partners.",
+    "numbers": [
+      {
+        "value": 50,
+        "prefix": "",
+        "suffix": "+",
+        "label": "Specialized production partners"
+      },
+      {
+        "value": 50000,
+        "prefix": "Up to ",
+        "suffix": "",
+        "label": "Pieces per month"
+      },
+      {
+        "value": 100,
+        "prefix": "",
+        "suffix": "",
+        "label": "Minimum order, pieces per color"
+      }
+    ],
+    "note": "A trusted cluster: our wider network is allocated according to product type, construction, materials, quantity, finishing, and timeline. Capacity, allocation, and minimum quantities are confirmed through a project-specific feasibility review."
+  },
+  "fabrics": {
+    "eyebrow": "Fabrics · Accessories & trims",
+    "title": "Fabric, selected for the brief",
+    "fabricImage": "/assets/img/image21.webp",
+    "fabricLabel": "Material expertise",
+    "fabricText": "Experts in manufacturing across every material type, from lightweight to heavyweight.",
+    "materials": [
+      "Knitted",
+      "Woven",
+      "Denim"
+    ],
+    "routes": [
+      {
+        "title": "Manufactured in Egypt",
+        "text": "Developed to project requirements."
+      },
+      {
+        "title": "Trusted local suppliers",
+        "text": "Selected when suitable high-quality fabric is available."
+      },
+      {
+        "title": "Selected sourcing from China",
+        "text": "Used when quality, performance, or commercial needs require it."
+      }
+    ],
+    "sustainability": "Quality, performance, quantity, lead time, and cost determine the sourcing route. We care about sustainability: we explore responsible material choices and efficient fabric use.",
+    "trimsImage": "/assets/img/image22.webp",
+    "trimsLabel": "Trims that finish the product",
+    "trimsText": "Manufactured locally where suitable, or sourced from trusted suppliers in China for specialized requirements.",
+    "trims": [
+      "Labels",
+      "Hang tags",
+      "Zippers",
+      "Buttons",
+      "Drawcords",
+      "Elastics",
+      "Packaging"
+    ],
+    "checksLabel": "Reviewed before production is released",
+    "checks": [
+      "Specifications",
+      "Minimum quantities",
+      "Timing",
+      "Budget"
+    ]
+  },
+  "printing": {
+    "eyebrow": "Printing techniques",
+    "titleStart": "Printing,",
+    "titleScript": "mastered",
+    "text": "We master every type of printing across different materials, and choose the right technique for each design and fabric.",
+    "mixText": "We can mix more than one printing type in one product.",
+    "techniques": [
+      {
+        "name": "DTF",
+        "caption": "Direct-to-film · e.g. DRP9",
+        "image": "/assets/img/image23.webp",
+        "imageAlt": "Two kids T-shirts with DTF prints, front and back",
+        "size": "wide",
+        "description": "Full-color artwork printed onto film and heat-transferred, sharp on cotton and blends.",
+        "example": "DRP9 · Oversized kids T-shirt",
+        "exampleNote": "Pattern proportions, neck construction, print placement, and labels."
+      },
+      {
+        "name": "DTG",
+        "caption": "Direct-to-garment",
+        "image": "/assets/img/image24.webp",
+        "imageAlt": "Direct-to-garment printer at work",
+        "size": "normal",
+        "description": "Artwork printed straight onto the garment for detailed, multi-color designs.",
+        "example": "",
+        "exampleNote": ""
+      },
+      {
+        "name": "Rubber",
+        "caption": "Raised rubber print",
+        "image": "/assets/img/image25.webp",
+        "imageAlt": "Raised rubber print on an olive garment",
+        "size": "normal",
+        "description": "A raised, tactile print that stands off the fabric surface.",
+        "example": "",
+        "exampleNote": ""
+      },
+      {
+        "name": "Vinyl",
+        "caption": "Silver reflective & glitter · e.g. AirFit",
+        "image": "/assets/img/image26.webp",
+        "imageAlt": "AirFit performance T-shirt with reflective vinyl",
+        "size": "tall",
+        "description": "Cut vinyl applied with heat, including silver reflective and glitter finishes.",
+        "example": "AirFit · Performance T-shirt",
+        "exampleNote": "Vinyl reflective print with controlled branding placement."
+      },
+      {
+        "name": "Sublimation",
+        "caption": "All-over print & laser cut · scarves, Molped, SSC",
+        "image": "/assets/img/image27.webp",
+        "imageAlt": "Sublimation-printed pajama set",
+        "size": "normal",
+        "description": "Dye sublimation for all-over prints on polyester and satin, with laser-cut finishing. Used on scarves, Molped and SSC.",
+        "example": "Molped · Printed pajama set (through Doodle Factory)",
+        "exampleNote": "Satin fabric with sublimation printing, artwork continuity and piping alignment."
+      },
+      {
+        "name": "Silicone",
+        "caption": "e.g. beIN SPORTS, PAO",
+        "image": "/assets/img/image28.webp",
+        "imageAlt": "Tank top with silicone print",
+        "size": "normal",
+        "description": "A soft-touch silicone print for clean logos. Used for beIN SPORTS and PAO.",
+        "example": "PAO · Tank top (Doodle Factory collaboration)",
+        "exampleNote": "100% cotton material, silicone print, and premium finishing."
+      },
+      {
+        "name": "Silk screen",
+        "caption": "Up to 10 colors per design · SSC & AXA tote bags",
+        "image": "/assets/img/image29.webp",
+        "imageAlt": "Silk-screen printed tote bag",
+        "size": "normal",
+        "description": "Classic screen printing with up to 10 colors per design. Used for the SSC and AXA tote bags.",
+        "example": "AXA · Printed tote bag",
+        "exampleNote": "Multi-color silk screen, artwork placement and canvas construction."
+      }
+    ]
+  },
+  "embroidery": {
+    "eyebrow": "Embroidery techniques",
+    "titleStart": "Embroidery,",
+    "titleScript": "crafted",
+    "text": "From clean logos to raised and textured finishes, we choose the right stitch, thread, and technique for each design and fabric.",
+    "types": [
+      {
+        "title": "Flat embroidery",
+        "text": "Clean stitched logos, names, and text"
+      },
+      {
+        "title": "3D puff",
+        "text": "Raised embroidery with a foam underlay"
+      },
+      {
+        "title": "Appliqué",
+        "text": "Fabric shapes stitched onto the garment"
+      },
+      {
+        "title": "Patches",
+        "text": "Embroidered badges, sewn-on or iron-on"
+      },
+      {
+        "title": "Chenille",
+        "text": "Textured loop embroidery, varsity style"
+      },
+      {
+        "title": "Sequins",
+        "text": "Sparkling details stitched into the design"
+      },
+      {
+        "title": "Specialty threads",
+        "text": "Metallic, neon, and glow-in-the-dark finishes"
+      }
+    ],
+    "gallery": [
+      {
+        "image": "/assets/img/image30.webp",
+        "caption": "Chest embroidery",
+        "alt": "Boy in a white T-shirt with chest embroidery"
+      },
+      {
+        "image": "/assets/img/image31.webp",
+        "caption": "Neckline embroidery",
+        "alt": "Pink ARTIST embroidery at a neckline"
+      },
+      {
+        "image": "/assets/img/image32.webp",
+        "caption": "Shoulder motif",
+        "alt": "Embroidered blue birds on a shoulder"
+      },
+      {
+        "image": "/assets/img/image33.webp",
+        "caption": "Scattered motifs",
+        "alt": "Scattered embroidered motifs on a white tee"
+      }
+    ],
+    "comboText": "We can combine embroidery with printing in one product."
+  },
+  "partners": {
+    "eyebrow": "Our successful partners",
+    "title": "Brands we work with",
+    "rowOne": [
+      {
+        "name": "AirFit",
+        "logo": "/assets/img/image34.webp"
+      },
+      {
+        "name": "DRP9",
+        "logo": "/assets/img/image35.webp"
+      },
+      {
+        "name": "Little Ones",
+        "logo": "/assets/img/image36.webp"
+      },
+      {
+        "name": "Freya",
+        "logo": "/assets/img/image37.webp"
+      },
+      {
+        "name": "Solino",
+        "logo": "/assets/img/image38.webp"
+      },
+      {
+        "name": "ILĀ",
+        "logo": "/assets/img/image39.webp"
+      },
+      {
+        "name": "beIN SPORTS",
+        "logo": "/assets/img/image40.webp"
+      },
+      {
+        "name": "AXA",
+        "logo": "/assets/img/image41.webp"
+      }
+    ],
+    "rowTwo": [
+      {
+        "name": "Doodle Factory",
+        "logo": "/assets/img/image42.webp"
+      },
+      {
+        "name": "Azza Fahmy",
+        "logo": "/assets/img/image43.webp"
+      },
+      {
+        "name": "Bank NXT",
+        "logo": "/assets/img/image44.webp"
+      },
+      {
+        "name": "PAO",
+        "logo": "/assets/img/image45.webp"
+      },
+      {
+        "name": "Ellie",
+        "logo": "/assets/img/image46.webp"
+      },
+      {
+        "name": "Molped",
+        "logo": "/assets/img/image47.webp"
+      },
+      {
+        "name": "Ibrahim A. Badran Medical Charity Foundation",
+        "logo": "/assets/img/image48.webp"
+      },
+      {
+        "name": "SMASH Sporting Club",
+        "logo": "/assets/img/image49.webp"
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Our process",
+    "title": "One journey, one accountable team.",
+    "introLabel": "Seven stages · three phases",
+    "introTitle": "From plan to delivery, every step has an owner.",
+    "introHint": "Scroll to move through the journey.",
+    "stages": [
+      {
+        "phase": "Plan",
+        "title": "Project onboarding",
+        "text": "Understand the client, market, quantity, and expectations."
+      },
+      {
+        "phase": "Plan",
+        "title": "Project brief & feasibility",
+        "text": "Review construction, materials, quality, timing, and suitability."
+      },
+      {
+        "phase": "Plan",
+        "title": "Costing & order confirmation",
+        "text": "Define commercial scope, responsibilities, approvals, and plan."
+      },
+      {
+        "phase": "Develop",
+        "title": "Development & sample approval",
+        "text": "Confirm the approved product standard before bulk production."
+      },
+      {
+        "phase": "Develop",
+        "title": "Pre-production & release",
+        "text": "Verify materials, measurements, trims, branding, packing, and approvals."
+      },
+      {
+        "phase": "Produce & deliver",
+        "title": "Production & quality control",
+        "text": "Coordinate manufacturing, inspections, visibility, and corrective action."
+      },
+      {
+        "phase": "Produce & deliver",
+        "title": "Delivery & continued support",
+        "text": "Confirm finishing, quantities, packing, documentation, and handover."
+      }
+    ]
+  },
+  "timelines": {
+    "eyebrow": "Project planning",
+    "title": "Clear working timelines",
+    "groups": [
+      {
+        "title": "Sampling",
+        "rows": [
+          {
+            "label": "Initial sample",
+            "value": 5,
+            "unit": "approx. working days"
+          },
+          {
+            "label": "Pre-production sample",
+            "value": 3,
+            "unit": "approx. working days"
+          }
+        ]
+      },
+      {
+        "title": "Bulk production",
+        "rows": [
+          {
+            "label": "Standard production",
+            "value": 4,
+            "unit": "approx. weeks"
+          },
+          {
+            "label": "Peak-season production",
+            "value": 5,
+            "unit": "approx. weeks"
+          }
+        ]
+      }
+    ],
+    "notes": [
+      "Bulk-production timing begins after the required pre-production approvals and materials are confirmed.",
+      "Each timeline is confirmed after reviewing complexity, fabric and trim availability, quantity, finishing, manufacturing allocation, sample requirements, and approval timing."
+    ]
+  },
+  "gates": {
+    "eyebrow": "Four critical quality gates",
+    "title": "Quality built into the timeline",
+    "badgeLabel": "QC team experience",
+    "badgeValue": "10+ years",
+    "items": [
+      {
+        "when": "Before production",
+        "title": "Sample inspection",
+        "text": "The sample is checked against the pattern and the brief: measurements, materials, construction, trims, branding, and finishing."
+      },
+      {
+        "when": "Start of the line",
+        "title": "First-piece inspection",
+        "text": "The first piece entering the production line is checked progressively at relevant stages to confirm the approved requirements transfer correctly."
+      },
+      {
+        "when": "At 10–20% of production",
+        "title": "Inline quality control",
+        "text": "While production is running, work in progress is tested to detect and fix errors at the earliest stage: recurring defects, measurement variation, construction, and finishing."
+      },
+      {
+        "when": "On receipt",
+        "title": "Final quality inspection",
+        "text": "The completed order is checked for workmanship, appearance, quantities, branding, finishing, and packing."
+      }
+    ]
+  },
+  "standards": {
+    "eyebrow": "Quality assurance / Final QC",
+    "title": "The standard stays visible",
+    "text": "Final QC follows international quality standards (AQL), agreed with every client.",
+    "levels": [
+      {
+        "label": "Critical defects",
+        "value": "Zero",
+        "unit": "acceptance",
+        "meter": 0,
+        "text": "Safety or regulatory failures, such as a stray needle or an unsafe sharp component."
+      },
+      {
+        "label": "Major defects",
+        "value": "AQL 2.5",
+        "unit": "acceptance level",
+        "meter": 2,
+        "text": "Defects that reduce usability, such as open seams, fabric holes, or broken stitches."
+      },
+      {
+        "label": "Minor defects",
+        "value": "AQL 4.0",
+        "unit": "acceptance level",
+        "meter": 4,
+        "text": "Small finishing defects that do not affect use, such as loose threads."
+      }
+    ],
+    "controlsLabel": "Supporting controls may include",
+    "controls": [
+      "Measurement, tolerances, fabric, shade and GSM checks",
+      "Shrinkage, colorfastness and composition verification",
+      "Branding placement and needle or metal detection where required",
+      "Corrective action and reinspection"
+    ],
+    "note": "Production acceptance is based on approved samples and documented inspections."
+  },
+  "account": {
+    "eyebrow": "Account management & visibility",
+    "title": "Guided by one experienced partner",
+    "text": "Everything that needs a client decision, shared on time. Clients receive clear visibility into:",
+    "image": "/assets/img/image52.webp",
+    "imageAlt": "Apparel account manager reviewing garments",
+    "badgeSmall": "Your experienced",
+    "badgeTitle": "Apparel Account Manager",
+    "guidance": [
+      "Feasibility",
+      "Sourcing",
+      "Construction",
+      "Costing",
+      "Approvals",
+      "Production",
+      "Quality findings",
+      "Delivery"
+    ],
+    "visibility": [
+      "Current status and completed milestones.",
+      "Samples and pending approvals.",
+      "Quality findings, risks, and emerging issues.",
+      "Required client decisions.",
+      "Corrective actions and follow-up.",
+      "Changes affecting quality, cost, or timing."
+    ]
+  },
+  "reach": {
+    "eyebrow": "Go global / Why Egypt",
+    "titleStart": "From Egypt,",
+    "titleScript": "Go Global",
+    "mapNote": "Regional proximity can speed up sampling, feedback, approvals, and production follow-up. Egypt covers textiles, apparel, printing, embroidery, washing, finishing, trims, and specialist services in one country.",
+    "localTab": "Clients in Egypt",
+    "localTitle": "For clients in Egypt",
+    "localText": "Production coordination through final local delivery, with quality control, approvals, clear progress updates, finishing, packing, and quantity confirmation.",
+    "regionalTab": "Regional clients",
+    "regionalTitle": "For regional clients",
+    "regionalText": "Production management and end-to-end quality oversight in Egypt, coordinated through FOB handover. Licensed partners support export documentation, customs, freight, and shipping.",
+    "shippingTitle": "Shipping",
+    "shippingText": "High-volume Saudi and GCC shipments are expected to move primarily by sea. Sokhna and Safaga are potential port options, subject to the confirmed route and freight partner.",
+    "shippingNote": "Route, responsibilities, shipping terms, lead-time and landed-cost potential are evaluated and confirmed for each order."
+  },
+  "portfolioIntro": {
+    "eyebrow": "The portfolio",
+    "titleStart": "Different categories.",
+    "titleScript": "One standard."
+  },
+  "faq": {
+    "eyebrow": "Questions brands ask us",
+    "title": "Frequently asked questions",
+    "items": [
+      {
+        "q": "What does Apparate do?",
+        "a": "Apparate is an end-to-end apparel manufacturing and quality-assurance partner based in Egypt. We manage the full journey for local and regional brands, from brief and feasibility to sampling, bulk production, quality control and delivery, through one accountable team."
+      },
+      {
+        "q": "What is your minimum order quantity?",
+        "a": "Our minimum order is 100 pieces per color. Final minimums are confirmed in a project-specific feasibility review, because materials, trims and construction can affect them."
+      },
+      {
+        "q": "How many pieces can you produce per month?",
+        "a": "Up to 50,000 pieces per month across a network of 50+ specialized production partners. Capacity and factory allocation are confirmed for each project."
+      },
+      {
+        "q": "How long do sampling and bulk production take?",
+        "a": "An initial sample takes about 5 working days and a pre-production sample about 3 working days. Standard bulk production takes about 4 weeks, and about 5 weeks in peak season. Bulk timing starts after pre-production approvals and materials are confirmed."
+      },
+      {
+        "q": "What quality standards do you inspect to?",
+        "a": "Every order passes four quality gates: sample inspection, first-piece inspection, inline QC at 10–20% of production, and final inspection. Final QC follows AQL standards agreed with the client: zero acceptance for critical defects, AQL 2.5 for major defects and AQL 4.0 for minor defects."
+      },
+      {
+        "q": "Which printing and embroidery techniques do you offer?",
+        "a": "Printing: DTF, DTG, rubber, vinyl (including silver reflective and glitter), sublimation, silicone and silk screen with up to 10 colors. Embroidery: flat, 3D puff, appliqué, patches, chenille, sequins and specialty threads. Techniques can be combined in one product."
+      },
+      {
+        "q": "What products do you manufacture?",
+        "a": "Sportswear, knitwear, everyday and lifestyle wear, outerwear, baby and kidswear, and scarves and textile accessories such as printed scarves and tote bags, across knitted, woven and denim fabrics."
+      },
+      {
+        "q": "Do you work with clients in Saudi Arabia and the GCC?",
+        "a": "Yes. For regional clients we manage production and quality oversight in Egypt through FOB handover, with licensed partners handling export documentation, customs, freight and shipping. High-volume Saudi and GCC shipments are expected to move mainly by sea, with Sokhna and Safaga as potential ports."
+      },
+      {
+        "q": "How do I start a project with Apparate?",
+        "a": "Share your product reference or tech pack, quantity and colors, fabric, printing or embroidery, accessories, target delivery date and destination. An experienced apparel account manager reviews the brief, identifies the manufacturing and sourcing route, highlights key risks and confirms the next step."
+      }
+    ]
+  },
+  "ctaBand": {
+    "text": "Share your product, quantity and timeline. An experienced apparel account manager will confirm the manufacturing route and the next step.",
+    "button": "Bring your idea to life"
+  }
+}

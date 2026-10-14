@@ -1,0 +1,18 @@
+{
+  "name": "apparate-website",
+  "version": "1.0.0",
+  "description": "Apparate website (Eleventy + Decap CMS)",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "build:preview": "ARTIFACT=1 eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.0.0"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  }
+}

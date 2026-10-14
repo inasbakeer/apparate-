@@ -1,0 +1,449 @@
+# Apparate content editor (Decap CMS)
+# Editors sign in at https://apparate.net/admin/ with the email they were invited with.
+# Every save commits to the GitHub repository and the site rebuilds automatically (about 1 minute).
+
+backend:
+  name: git-gateway        # Netlify Identity + Git Gateway: invite editors by email, no GitHub account needed
+  branch: main
+
+# Uncomment to review changes before they go live (Draft → In review → Ready → Publish)
+# publish_mode: editorial_workflow
+
+site_url: https://apparate.net
+display_url: https://apparate.net
+logo_url: /assets/img/favicon.png
+media_folder: src/assets/img
+public_folder: /assets/img
+
+collections:
+  # ------------------------------------------------------------------ SITE SETTINGS
+  - name: settings
+    label: "⚙️ Site settings & contact"
+    editor: { preview: false }
+    files:
+      - name: site
+        label: "Company details, contact & menu"
+        file: src/_data/site.json
+        fields:
+          - { name: name, label: "Company name", widget: string }
+          - { name: legalName, label: "Legal name", widget: string }
+          - { name: url, label: "Website address (no slash at the end)", widget: string, hint: "Used for Google, sitemap and social previews. e.g. https://apparate.net" }
+          - { name: language, label: "Language code", widget: hidden }
+          - { name: locale, label: "Locale", widget: hidden }
+          - { name: tagline, label: "Tagline", widget: string }
+          - { name: description, label: "Company description (used by Google and AI assistants)", widget: text, hint: "One or two sentences with the key facts: what you do, where, capacity, minimums." }
+          - { name: foundingYear, label: "Founding year", widget: string }
+          - { name: logo, label: "Logo (light, for dark backgrounds)", widget: image }
+          - { name: logoDark, label: "Logo (dark, for light backgrounds)", widget: image }
+          - { name: shareImage, label: "Default social share image", widget: image, hint: "Shown when the site is shared on WhatsApp, LinkedIn, Facebook. Landscape, at least 1200×630." }
+          - { name: phone, label: "Phone (as shown)", widget: string }
+          - { name: whatsapp, label: "WhatsApp number (digits only, with country code)", widget: string, hint: "e.g. 201500411000" }
+          - { name: whatsappMessage, label: "WhatsApp first message", widget: string }
+          - { name: email, label: "Email", widget: string }
+          - name: address
+            label: "Address"
+            widget: object
+            fields:
+              - { name: locality, label: "City / area", widget: string }
+              - { name: region, label: "Governorate / region", widget: string }
+              - { name: country, label: "Country code", widget: string }
+              - { name: countryName, label: "Country", widget: string }
+          - { name: factory, label: "Factory / origin (for AI summaries)", widget: string }
+          - { name: areaServed, label: "Countries served", widget: list, field: { name: country, label: Country, widget: string } }
+          - { name: social, label: "Social profile links (LinkedIn, Instagram, Facebook…)", widget: list, required: false, field: { name: link, label: "Full URL", widget: string } }
+          - name: nav
+            label: "Top menu"
+            widget: list
+            fields:
+              - { name: label, label: "Label", widget: string }
+              - { name: href, label: "Link", widget: string, hint: "Section links look like /#who, /#make, /#work, /#reach, /#portfolio, /#faq" }
+          - { name: navCta, label: "Top menu button", widget: string }
+          - { name: footerNote, label: "Footer text", widget: string }
+
+  # ------------------------------------------------------------------ HOME PAGE
+  - name: pages
+    label: "📄 Pages"
+    files:
+      - name: home
+        label: "Home page"
+        file: src/_data/home.json
+        fields:
+          - name: seo
+            label: "🔎 Google & social preview"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: title, label: "Page title (50–60 characters)", widget: string }
+              - { name: description, label: "Meta description (140–160 characters)", widget: text }
+              - { name: image, label: "Share image", widget: image }
+          - name: hero
+            label: "1 · Opening (hero)"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: chip, label: "Pill label", widget: string }
+              - { name: script, label: "Handwritten line", widget: string }
+              - { name: lines, label: "Big headline lines", widget: list, field: { name: line, label: Line, widget: string } }
+              - { name: text, label: "Intro text", widget: text }
+              - { name: ctaPrimary, label: "Main button", widget: string }
+              - { name: ctaSecondary, label: "Second button", widget: string }
+              - { name: side, label: "Vertical side text", widget: string }
+              - { name: image, label: "Background photo", widget: image }
+          - name: stats
+            label: "2 · Key numbers"
+            widget: list
+            collapsed: true
+            summary: "{{fields.prefix}}{{fields.value}}{{fields.suffix}} – {{fields.label}}"
+            fields:
+              - { name: value, label: "Number", widget: number }
+              - { name: from, label: "Count up from", widget: number, default: 0 }
+              - { name: prefix, label: "Text before", widget: string, required: false }
+              - { name: suffix, label: "Text after (e.g. +)", widget: string, required: false }
+              - { name: label, label: "Label", widget: string }
+              - { name: plain, label: "Show without thousands comma (e.g. a year)", widget: boolean, required: false }
+          - name: chapters
+            label: "3 · Chapter openers"
+            widget: object
+            collapsed: true
+            fields:
+              - &chapter
+                name: who
+                label: "Who we are"
+                widget: object
+                collapsed: true
+                fields:
+                  - { name: script, label: "Handwritten word", widget: string }
+                  - { name: rest, label: "Rest of title", widget: string }
+                  - { name: text, label: "Text", widget: text }
+                  - { name: image, label: "Background photo", widget: image }
+                  - { name: links, label: "Quick links", widget: list, fields: [ { name: label, label: Label, widget: string }, { name: href, label: "Link (#section)", widget: string } ] }
+              - { <<: *chapter, name: make, label: "What we make" }
+              - { <<: *chapter, name: work, label: "How we work" }
+              - { <<: *chapter, name: reach, label: "Our reach & work" }
+          - name: story
+            label: "4 · Our story"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: image, label: "Photo", widget: image }
+              - { name: imageAlt, label: "Photo description (for Google & accessibility)", widget: string }
+              - { name: imageTag, label: "Photo caption", widget: string }
+              - { name: items, label: "Timeline", widget: list, fields: [ { name: label, label: "Label", widget: string }, { name: text, label: "Text", widget: text }, { name: big, label: "Large text", widget: boolean, required: false } ] }
+          - name: gap
+            label: "5 · Accountability gap"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: problemsTitle, label: "Problems heading", widget: string }
+              - { name: problems, label: "Market problems", widget: list, field: { name: p, label: Problem, widget: string } }
+              - { name: gapTitle, label: "Middle heading", widget: string }
+              - { name: gapText, label: "Middle text", widget: text }
+              - { name: gapStrong, label: "Middle highlight", widget: string }
+              - { name: solutionsEyebrow, label: "Solutions label", widget: string }
+              - { name: solutionsTitle, label: "Solutions title", widget: string }
+              - { name: image, label: "Solutions photo", widget: image }
+              - { name: imageAlt, label: "Photo description", widget: string }
+              - { name: solutions, label: "Solutions", widget: list, fields: [ { name: title, label: Title, widget: string }, { name: text, label: Text, widget: string } ] }
+          - name: purpose
+            label: "6 · Our purpose"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: titleStart, label: "Title", widget: string }
+              - { name: titleScript, label: "Handwritten word", widget: string }
+              - { name: image, label: "Background photo", widget: image }
+              - { name: vision, label: "Vision", widget: text }
+              - { name: mission, label: "Mission", widget: text }
+              - { name: serveTitle, label: "Who we serve heading", widget: string }
+              - { name: serve, label: "Who we serve", widget: list, field: { name: s, label: Client type, widget: string } }
+          - name: values
+            label: "7 · Core values"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: items, label: "Values", widget: list, fields: [ { name: icon, label: Icon, widget: select, options: [shield, eye, medal, hand, rocket] }, { name: title, label: Title, widget: string }, { name: text, label: Text, widget: text } ] }
+          - name: method
+            label: "8 · Methodology"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: titleScript, label: "Handwritten word", widget: string }
+              - { name: titleRest, label: "Rest of title", widget: string }
+              - { name: text, label: "Intro", widget: text }
+              - { name: items, label: "Pillars", widget: list, fields: [ { name: label, label: Label, widget: string }, { name: title, label: Title, widget: string }, { name: text, label: Text, widget: text } ] }
+          - name: network
+            label: "9 · Manufacturing network"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: image, label: "Photo", widget: image }
+              - { name: imageAlt, label: "Photo description", widget: string }
+              - { name: text, label: "Text", widget: text }
+              - { name: numbers, label: "Numbers", widget: list, fields: [ { name: value, label: Number, widget: number }, { name: prefix, label: "Text before", widget: string, required: false }, { name: suffix, label: "Text after", widget: string, required: false }, { name: label, label: Label, widget: string } ] }
+              - { name: note, label: "Small print", widget: text }
+          - name: fabrics
+            label: "10 · Fabrics & trims"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: fabricImage, label: "Fabric photo", widget: image }
+              - { name: fabricLabel, label: "Fabric heading", widget: string }
+              - { name: fabricText, label: "Fabric text", widget: text }
+              - { name: materials, label: "Materials", widget: list, field: { name: m, label: Material, widget: string } }
+              - { name: routes, label: "Sourcing routes", widget: list, fields: [ { name: title, label: Title, widget: string }, { name: text, label: Text, widget: string } ] }
+              - { name: sustainability, label: "Sustainability note", widget: text }
+              - { name: trimsImage, label: "Trims photo", widget: image }
+              - { name: trimsLabel, label: "Trims heading", widget: string }
+              - { name: trimsText, label: "Trims text", widget: text }
+              - { name: trims, label: "Common trims", widget: list, field: { name: t, label: Trim, widget: string } }
+              - { name: checksLabel, label: "Checks heading", widget: string }
+              - { name: checks, label: "Checks", widget: list, field: { name: c, label: Check, widget: string } }
+          - name: printing
+            label: "11 · Printing techniques"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: titleStart, label: "Title", widget: string }
+              - { name: titleScript, label: "Handwritten word", widget: string }
+              - { name: text, label: "Intro", widget: text }
+              - { name: mixText, label: "Mix note", widget: string }
+              - name: techniques
+                label: "Techniques (one example each)"
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { name: name, label: "Technique", widget: string }
+                  - { name: caption, label: "Short caption", widget: string }
+                  - { name: image, label: "Example photo", widget: image }
+                  - { name: imageAlt, label: "Photo description", widget: string }
+                  - { name: size, label: "Tile size", widget: select, options: [normal, wide, tall], default: normal }
+                  - { name: description, label: "What it is", widget: text }
+                  - { name: example, label: "Example (brand · product)", widget: string, required: false }
+                  - { name: exampleNote, label: "Example details", widget: text, required: false }
+          - name: embroidery
+            label: "12 · Embroidery"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: titleStart, label: "Title", widget: string }
+              - { name: titleScript, label: "Handwritten word", widget: string }
+              - { name: text, label: "Intro", widget: text }
+              - { name: types, label: "Embroidery types", widget: list, fields: [ { name: title, label: Title, widget: string }, { name: text, label: Text, widget: string } ] }
+              - { name: gallery, label: "Photos (4)", widget: list, fields: [ { name: image, label: Photo, widget: image }, { name: caption, label: Caption, widget: string }, { name: alt, label: "Photo description", widget: string } ] }
+              - { name: comboText, label: "Combine note", widget: string }
+          - name: partners
+            label: "13 · Partner brands"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: rowOne, label: "Logos – first row", widget: list, summary: "{{fields.name}}", fields: [ { name: name, label: "Brand name", widget: string }, { name: logo, label: Logo, widget: image } ] }
+              - { name: rowTwo, label: "Logos – second row", widget: list, summary: "{{fields.name}}", fields: [ { name: name, label: "Brand name", widget: string }, { name: logo, label: Logo, widget: image } ] }
+          - name: process
+            label: "14 · Seven-stage process"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: introLabel, label: "First card label", widget: string }
+              - { name: introTitle, label: "First card title", widget: string }
+              - { name: introHint, label: "First card hint", widget: string }
+              - { name: stages, label: "Stages", widget: list, summary: "{{fields.title}}", fields: [ { name: phase, label: Phase, widget: select, options: ["Plan", "Develop", "Produce & deliver"] }, { name: title, label: Title, widget: string }, { name: text, label: Text, widget: text } ] }
+          - name: timelines
+            label: "15 · Timelines"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - name: groups
+                label: "Groups"
+                widget: list
+                fields:
+                  - { name: title, label: "Group title", widget: string }
+                  - { name: rows, label: "Rows", widget: list, fields: [ { name: label, label: Label, widget: string }, { name: value, label: Number, widget: number }, { name: unit, label: Unit, widget: string } ] }
+              - { name: notes, label: "Notes", widget: list, field: { name: n, label: Note, widget: text } }
+          - name: gates
+            label: "16 · Quality gates"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: badgeLabel, label: "Badge label", widget: string }
+              - { name: badgeValue, label: "Badge value", widget: string }
+              - { name: items, label: "Gates (4)", widget: list, fields: [ { name: when, label: When, widget: string }, { name: title, label: Title, widget: string }, { name: text, label: Text, widget: text } ] }
+          - name: standards
+            label: "17 · Quality standards (AQL)"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: text, label: "Intro", widget: text }
+              - { name: levels, label: "Defect levels", widget: list, fields: [ { name: label, label: Label, widget: string }, { name: value, label: Value, widget: string }, { name: unit, label: Unit, widget: string }, { name: meter, label: "Meter bars filled (0–10)", widget: number, min: 0, max: 10 }, { name: text, label: Text, widget: text } ] }
+              - { name: controlsLabel, label: "Controls heading", widget: string }
+              - { name: controls, label: "Supporting controls", widget: list, field: { name: c, label: Control, widget: string } }
+              - { name: note, label: "Note", widget: string }
+          - name: account
+            label: "18 · Account management"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: text, label: "Intro", widget: text }
+              - { name: image, label: "Photo", widget: image }
+              - { name: imageAlt, label: "Photo description", widget: string }
+              - { name: badgeSmall, label: "Badge small text", widget: string }
+              - { name: badgeTitle, label: "Badge title", widget: string }
+              - { name: guidance, label: "Guidance chips", widget: list, field: { name: g, label: Item, widget: string } }
+              - { name: visibility, label: "Visibility list", widget: list, field: { name: v, label: Item, widget: string } }
+          - name: reach
+            label: "19 · From Egypt, Go Global"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: titleStart, label: "Title", widget: string }
+              - { name: titleScript, label: "Handwritten words", widget: string }
+              - { name: mapNote, label: "Text under map", widget: text }
+              - { name: localTab, label: "Tab 1", widget: string }
+              - { name: localTitle, label: "Tab 1 title", widget: string }
+              - { name: localText, label: "Tab 1 text", widget: text }
+              - { name: regionalTab, label: "Tab 2", widget: string }
+              - { name: regionalTitle, label: "Tab 2 title", widget: string }
+              - { name: regionalText, label: "Tab 2 text", widget: text }
+              - { name: shippingTitle, label: "Shipping heading", widget: string }
+              - { name: shippingText, label: "Shipping text", widget: text }
+              - { name: shippingNote, label: "Shipping small print", widget: text }
+          - name: portfolioIntro
+            label: "20 · Portfolio heading"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: titleStart, label: "Title", widget: string }
+              - { name: titleScript, label: "Handwritten words", widget: string }
+          - name: ctaBand
+            label: "22 · Closing call-to-action"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: text, label: "Text", widget: text }
+              - { name: button, label: "Button", widget: string }
+          - name: faq
+            label: "21 · FAQ (helps Google & AI assistants answer about Apparate)"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: eyebrow, label: "Small label", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: items, label: "Questions", widget: list, summary: "{{fields.q}}", hint: "Write questions the way clients ask them. Answer in the first sentence, with real numbers.", fields: [ { name: q, label: Question, widget: string }, { name: a, label: Answer, widget: text } ] }
+
+      # ---------------------------------------------------------------- START PAGE
+      - name: start
+        label: "Start a feasibility review page"
+        file: src/_data/start.json
+        fields:
+          - name: seo
+            label: "🔎 Google & social preview"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: title, label: "Page title", widget: string }
+              - { name: description, label: "Meta description", widget: text }
+              - { name: image, label: "Share image", widget: image }
+          - { name: eyebrow, label: "Small label", widget: string }
+          - { name: titleScript, label: "Handwritten word", widget: string }
+          - { name: titleRest, label: "Rest of title", widget: string }
+          - { name: text, label: "Intro", widget: text }
+          - { name: image, label: "Background photo", widget: image }
+          - { name: steps, label: "Steps", widget: list, fields: [ { name: title, label: Title, widget: string }, { name: text, label: Text, widget: string } ] }
+          - { name: formTitle, label: "Form title", widget: string }
+          - name: labels
+            label: "Form field labels"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: company, label: "Company", widget: string }
+              - { name: product, label: "Product", widget: string }
+              - { name: category, label: "Category", widget: string }
+              - { name: quantity, label: "Quantity", widget: string }
+              - { name: fabric, label: "Fabric", widget: string }
+              - { name: printing, label: "Printing & embroidery", widget: string }
+              - { name: accessories, label: "Accessories", widget: string }
+              - { name: upload, label: "Upload", widget: string }
+              - { name: date, label: "Date", widget: string }
+              - { name: destination, label: "Destination", widget: string }
+              - { name: notes, label: "Notes", widget: string }
+          - name: placeholders
+            label: "Form example texts"
+            widget: object
+            collapsed: true
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: company, label: "Company", widget: string }
+              - { name: product, label: "Product", widget: string }
+              - { name: quantity, label: "Quantity", widget: string }
+              - { name: accessories, label: "Accessories", widget: string }
+              - { name: notes, label: "Notes", widget: string }
+          - { name: categories, label: "Category options", widget: list, field: { name: c, label: Option, widget: string } }
+          - { name: fabricOptions, label: "Fabric options", widget: list, field: { name: o, label: Option, widget: string } }
+          - { name: printingOptions, label: "Printing & embroidery options", widget: list, field: { name: o, label: Option, widget: string } }
+          - { name: destinations, label: "Destination options", widget: list, field: { name: d, label: Option, widget: string } }
+          - { name: uploadTitle, label: "Upload box title", widget: string }
+          - { name: uploadHint, label: "Upload box hint", widget: string }
+          - { name: uploadNote, label: "Upload note", widget: text }
+          - { name: briefHeading, label: "Brief heading", widget: string }
+          - { name: whatsappButton, label: "WhatsApp button", widget: string }
+          - { name: emailButton, label: "Email button", widget: string }
+          - { name: copyButton, label: "Copy button", widget: string }
+
+  # ------------------------------------------------------------------ PORTFOLIO
+  - name: portfolio
+    label: "👕 Portfolio"
+    files:
+      - name: portfolio
+        label: "Categories & products"
+        file: src/_data/portfolio.json
+        fields:
+          - name: categories
+            label: "Categories"
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: id, label: "Short id (no spaces, don't change once used)", widget: string }
+              - { name: name, label: "Name", widget: string }
+              - { name: description, label: "Description", widget: string }
+              - { name: image, label: "Cover photo", widget: image }
+          - name: items
+            label: "Products"
+            widget: list
+            summary: "{{fields.brand}} – {{fields.product}}"
+            fields:
+              - { name: brand, label: "Brand", widget: string }
+              - { name: product, label: "Product", widget: string }
+              - { name: category, label: "Category id", widget: select, options: [ { label: Sportswear, value: sport }, { label: Knitwear, value: knit }, { label: "Everyday & lifestyle", value: every }, { label: Outerwear, value: outer }, { label: "Baby & kids", value: kids }, { label: "Scarves & accessories", value: scarf } ] }
+              - { name: via, label: "Through (e.g. Through Doodle Factory)", widget: string, required: false }
+              - { name: description, label: "What we controlled", widget: text }
+              - { name: tags, label: "Tags (techniques, fabric)", widget: list, required: false, field: { name: t, label: Tag, widget: string } }
+              - { name: images, label: "Photos (first one is the cover)", widget: list, field: { name: img, label: Photo, widget: image } }

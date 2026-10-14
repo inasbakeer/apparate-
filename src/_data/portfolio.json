@@ -1,0 +1,476 @@
+{
+  "categories": [
+    {
+      "id": "sport",
+      "name": "Sportswear",
+      "description": "T-shirts, shorts & leggings.",
+      "image": "/assets/img/image58.webp"
+    },
+    {
+      "id": "knit",
+      "name": "Knitwear",
+      "description": "Coordinated sets & baby knit jackets.",
+      "image": "/assets/img/image65.webp"
+    },
+    {
+      "id": "every",
+      "name": "Everyday & lifestyle",
+      "description": "Polos, T-shirts, hoodies, sets, tanks & sleepwear.",
+      "image": "/assets/img/image70.webp"
+    },
+    {
+      "id": "outer",
+      "name": "Outerwear",
+      "description": "Structured jackets & printed blousons.",
+      "image": "/assets/img/image55.webp"
+    },
+    {
+      "id": "kids",
+      "name": "Baby & kids",
+      "description": "Muslin, fleece, sets & detailed kidswear.",
+      "image": "/assets/img/image87.webp"
+    },
+    {
+      "id": "scarf",
+      "name": "Scarves & textile accessories",
+      "description": "Printed scarves & branded tote bags.",
+      "image": "/assets/img/image57.webp"
+    }
+  ],
+  "items": [
+    {
+      "brand": "AirFit",
+      "product": "Performance T-shirt",
+      "category": "sport",
+      "via": "",
+      "description": "A controlled product standard from material review and pattern approval to neck finishing, printed back labels, tape, branding, and packing.",
+      "tags": [
+        "Fit",
+        "Neck & shoulder seams",
+        "Hem",
+        "Branding",
+        "Vinyl reflective print"
+      ],
+      "images": [
+        "/assets/img/image26.webp",
+        "/assets/img/image59.webp",
+        "/assets/img/image60.webp"
+      ]
+    },
+    {
+      "brand": "AirFit",
+      "product": "Performance shorts",
+      "category": "sport",
+      "via": "",
+      "description": "Premium fabric selection, a consistent silhouette, secure waistband construction, clean hems, and controlled logo placement protect the approved standard.",
+      "tags": [],
+      "images": [
+        "/assets/img/image61.webp",
+        "/assets/img/image62.webp"
+      ]
+    },
+    {
+      "brand": "SSC",
+      "product": "Printed leggings",
+      "category": "sport",
+      "via": "Through Doodle Factory",
+      "description": "All-over sublimation printing, flat seams, and a refined finish.",
+      "tags": [
+        "Sublimation",
+        "Flat seams"
+      ],
+      "images": [
+        "/assets/img/image63.webp",
+        "/assets/img/image64.webp",
+        "/assets/img/image58.webp"
+      ]
+    },
+    {
+      "brand": "Freya",
+      "product": "Knitwear set",
+      "category": "knit",
+      "via": "",
+      "description": "Coordinated proportions, knit structure, neckline, cuffs, and finishing.",
+      "tags": [],
+      "images": [
+        "/assets/img/image66.webp",
+        "/assets/img/image67.webp"
+      ]
+    },
+    {
+      "brand": "Little Ones",
+      "product": "Baby knit jacket",
+      "category": "knit",
+      "via": "",
+      "description": "Detailed knit construction, rib control, hood shaping, and precise button placement.",
+      "tags": [],
+      "images": [
+        "/assets/img/image69.webp",
+        "/assets/img/image68.webp",
+        "/assets/img/image53.webp",
+        "/assets/img/image65.webp"
+      ]
+    },
+    {
+      "brand": "beIN SPORTS",
+      "product": "Cotton polo",
+      "category": "every",
+      "via": "",
+      "description": "Collar and placket consistency, shoulder construction, hem finishing, and branding placement with silicone print.",
+      "tags": [
+        "Silicone print",
+        "100% cotton"
+      ],
+      "images": [
+        "/assets/img/image54.webp",
+        "/assets/img/image71.webp"
+      ]
+    },
+    {
+      "brand": "DRP9",
+      "product": "Oversized T-shirt",
+      "category": "every",
+      "via": "",
+      "description": "Pattern and fit, neck and shoulder seams, inside hem, shrinkage review, accessories, and labels are controlled against the approved sample.",
+      "tags": [
+        "DTF print"
+      ],
+      "images": [
+        "/assets/img/image72.webp",
+        "/assets/img/image73.webp",
+        "/assets/img/image74.webp"
+      ]
+    },
+    {
+      "brand": "Beatn",
+      "product": "Hoodie",
+      "category": "every",
+      "via": "",
+      "description": "Hood shape, rib construction, seam consistency, label placement, and coordinated proportions.",
+      "tags": [],
+      "images": [
+        "/assets/img/image75.webp",
+        "/assets/img/image78.webp"
+      ]
+    },
+    {
+      "brand": "Freya",
+      "product": "Sweatshirt",
+      "category": "every",
+      "via": "",
+      "description": "Exposed seam details, rib finishing, relaxed proportions and a consistent silhouette.",
+      "tags": [],
+      "images": [
+        "/assets/img/image76.webp",
+        "/assets/img/image77.webp"
+      ]
+    },
+    {
+      "brand": "Freya",
+      "product": "Summer set",
+      "category": "every",
+      "via": "",
+      "description": "Coordinated fit, button alignment, eyelet details, and clean seam finishing.",
+      "tags": [],
+      "images": [
+        "/assets/img/image79.webp",
+        "/assets/img/image80.webp"
+      ]
+    },
+    {
+      "brand": "PAO",
+      "product": "Tank top",
+      "category": "every",
+      "via": "Doodle Factory collaboration",
+      "description": "100% cotton material, silicone print, and premium finishing.",
+      "tags": [
+        "Silicone print",
+        "100% cotton"
+      ],
+      "images": [
+        "/assets/img/image28.webp",
+        "/assets/img/image81.webp"
+      ]
+    },
+    {
+      "brand": "Molped",
+      "product": "Printed pajama set",
+      "category": "every",
+      "via": "Through Doodle Factory",
+      "description": "Artwork continuity, coordinated proportions, collar and cuff details, piping alignment, and a clean finish.",
+      "tags": [
+        "Satin fabric",
+        "Sublimation printing"
+      ],
+      "images": [
+        "/assets/img/image82.webp",
+        "/assets/img/image83.webp",
+        "/assets/img/image27.webp"
+      ]
+    },
+    {
+      "brand": "Customization",
+      "product": "Structured jacket",
+      "category": "outer",
+      "via": "",
+      "description": "Pocket alignment, zipper construction, proportion control, and clean finishing.",
+      "tags": [
+        "Heavy polyamide"
+      ],
+      "images": [
+        "/assets/img/image84.webp",
+        "/assets/img/image85.webp"
+      ]
+    },
+    {
+      "brand": "SSC",
+      "product": "Printed blouson",
+      "category": "outer",
+      "via": "Through Doodle Factory",
+      "description": "Sublimation printing, YKK zipper, and a clean inside finish.",
+      "tags": [
+        "Waterproof fabric",
+        "YKK zipper"
+      ],
+      "images": [
+        "/assets/img/image55.webp",
+        "/assets/img/image86.webp"
+      ]
+    },
+    {
+      "brand": "Little Ones",
+      "product": "Mila dress",
+      "category": "kids",
+      "via": "",
+      "description": "Shape, gathers, bow placement, and coordinated sizing.",
+      "tags": [],
+      "images": [
+        "/assets/img/image56.webp"
+      ]
+    },
+    {
+      "brand": "Little Ones",
+      "product": "Summer romper",
+      "category": "kids",
+      "via": "",
+      "description": "Elastic openings, ruffle details, straps, and closures.",
+      "tags": [],
+      "images": [
+        "/assets/img/image88.webp"
+      ]
+    },
+    {
+      "brand": "Little Ones",
+      "product": "Newborn bow outfits",
+      "category": "kids",
+      "via": "",
+      "description": "Fabric handling, bow scale, proportions, and finish.",
+      "tags": [],
+      "images": [
+        "/assets/img/image89.webp"
+      ]
+    },
+    {
+      "brand": "Little Ones",
+      "product": "Teddy-fur onesie",
+      "category": "kids",
+      "via": "",
+      "description": "Hood shape, zipper finish, pile handling, and garment proportions.",
+      "tags": [],
+      "images": [
+        "/assets/img/image90.webp",
+        "/assets/img/image91.webp"
+      ]
+    },
+    {
+      "brand": "Little Ones",
+      "product": "Baby wrap",
+      "category": "kids",
+      "via": "",
+      "description": "Closure placement, edge finishing, lining construction, and consistent shaping.",
+      "tags": [],
+      "images": [
+        "/assets/img/image92.webp",
+        "/assets/img/image93.webp"
+      ]
+    },
+    {
+      "brand": "Solino",
+      "product": "Kids jacket",
+      "category": "kids",
+      "via": "",
+      "description": "Hood construction, pockets, and closures.",
+      "tags": [],
+      "images": [
+        "/assets/img/image94.webp"
+      ]
+    },
+    {
+      "brand": "Solino",
+      "product": "Florence sweatsuit",
+      "category": "kids",
+      "via": "",
+      "description": "Artwork placement, straight legs, and plain hems.",
+      "tags": [],
+      "images": [
+        "/assets/img/image95.webp"
+      ]
+    },
+    {
+      "brand": "Solino",
+      "product": "Striped pants",
+      "category": "kids",
+      "via": "",
+      "description": "Stripe alignment, waistband, and hems.",
+      "tags": [],
+      "images": [
+        "/assets/img/image96.webp"
+      ]
+    },
+    {
+      "brand": "Solino",
+      "product": "Slate Blue everyday tee",
+      "category": "kids",
+      "via": "",
+      "description": "Crewneck and hem finishing.",
+      "tags": [],
+      "images": [
+        "/assets/img/image97.webp"
+      ]
+    },
+    {
+      "brand": "Solino",
+      "product": "Wonder tee",
+      "category": "kids",
+      "via": "",
+      "description": "Front embroidery: embroidered text, birds, and fish.",
+      "tags": [
+        "Embroidery"
+      ],
+      "images": [
+        "/assets/img/image98.webp",
+        "/assets/img/image33.webp"
+      ]
+    },
+    {
+      "brand": "Solino",
+      "product": "Artist tee",
+      "category": "kids",
+      "via": "",
+      "description": "Pink Artist motif and stitch detail at the chest; back print with controlled scale and placement.",
+      "tags": [
+        "Chest embroidery",
+        "Printed artwork"
+      ],
+      "images": [
+        "/assets/img/image99.webp",
+        "/assets/img/image100.webp",
+        "/assets/img/image31.webp"
+      ]
+    },
+    {
+      "brand": "DRP9",
+      "product": "Oversized kids T-shirt",
+      "category": "kids",
+      "via": "",
+      "description": "Pattern proportions, neck construction, print placement, and labels.",
+      "tags": [
+        "DTF print"
+      ],
+      "images": [
+        "/assets/img/image23.webp"
+      ]
+    },
+    {
+      "brand": "Ellie",
+      "product": "Painting gown",
+      "category": "kids",
+      "via": "Through Doodle Factory",
+      "description": "Artwork, pocket placement, cuffs, and comfortable garment proportions.",
+      "tags": [],
+      "images": [
+        "/assets/img/image101.webp",
+        "/assets/img/image102.webp"
+      ]
+    },
+    {
+      "brand": "Doodle Factory",
+      "product": "Printed scarf · R&D case",
+      "category": "scarf",
+      "via": "",
+      "description": "Doodle Factory's scarf program exposed a market gap in two-sided printing. A focused R&D journey developed the printing route and addressed label placement. Development focus: two-sided print execution, edge finishing, label placement.",
+      "tags": [
+        "Sublimation printing",
+        "Two-sided printing"
+      ],
+      "images": [
+        "/assets/img/image103.webp",
+        "/assets/img/image104.webp"
+      ]
+    },
+    {
+      "brand": "Azza Fahmy",
+      "product": "Printed scarf",
+      "category": "scarf",
+      "via": "Through Doodle Factory",
+      "description": "Artwork continuity, edge finishing, drape, and brand execution.",
+      "tags": [],
+      "images": [
+        "/assets/img/image105.webp",
+        "/assets/img/image106.webp"
+      ]
+    },
+    {
+      "brand": "Bank NXT",
+      "product": "Printed scarf",
+      "category": "scarf",
+      "via": "Through Doodle Factory",
+      "description": "Print detail, border alignment, finishing, and precise label placement.",
+      "tags": [],
+      "images": [
+        "/assets/img/image107.webp",
+        "/assets/img/image108.webp"
+      ]
+    },
+    {
+      "brand": "Ibrahim Badran Foundation",
+      "product": "Printed scarf",
+      "category": "scarf",
+      "via": "Through Doodle Factory",
+      "description": "Detailed artwork, print clarity, border alignment, edge finishing, and label placement.",
+      "tags": [],
+      "images": [
+        "/assets/img/image109.webp",
+        "/assets/img/image110.webp"
+      ]
+    },
+    {
+      "brand": "AXA",
+      "product": "Printed tote bag",
+      "category": "scarf",
+      "via": "",
+      "description": "Artwork placement, handle attachment, canvas construction, and finishing.",
+      "tags": [
+        "Multi-color silk screen"
+      ],
+      "images": [
+        "/assets/img/image29.webp",
+        "/assets/img/image111.webp"
+      ]
+    },
+    {
+      "brand": "SSC",
+      "product": "Yoga tote bag",
+      "category": "scarf",
+      "via": "Through Doodle Factory",
+      "description": "Screen printing, inside padding, handle construction, and pocket finishing.",
+      "tags": [
+        "Multi-color silk screen"
+      ],
+      "images": [
+        "/assets/img/image112.webp",
+        "/assets/img/image113.webp"
+      ]
+    }
+  ]
+}
