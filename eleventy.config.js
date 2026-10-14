@@ -42,7 +42,7 @@ export default function (eleventyConfig) {
       let cfg = fs.readFileSync("src/admin/config.yml", "utf8");
       cfg = cfg.replace(/backend:\n(  .*\n)+/, `backend:\n  name: github\n  repo: ${process.env.GITHUB_REPOSITORY}\n  branch: main\n`);
       // brand assets live under the sub-folder address on the test site
-      cfg = cfg.replace(/\/assets\/img\/image114\.webp/g, `${PREFIX}/assets/img/favicon.png`).replace('logo_url:', 'app_title: Apparate · Content (test)\nlogo_url:');
+      cfg = cfg.replace(/\/assets\/img\/image114\.webp/g, `${PREFIX}/assets/img/logo-mark.png`).replace('logo_url:', 'app_title: Apparate · Content (test)\nlogo_url:');
       fs.writeFileSync(path.join(out, "config.yml"), cfg);
       fs.writeFileSync(path.join(out, "index.html"), `<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,8 +55,9 @@ export default function (eleventyConfig) {
 :root,:root[data-theme]{--sui-base-hue:325!important;--sui-font-family-default:Inter,system-ui,-apple-system,"Segoe UI",sans-serif!important;
  --sui-primary-accent-color:#E2198B!important;--sui-primary-accent-color-light:#ff4fb0!important;--sui-primary-accent-color-dark:#b0106b!important;
  --sui-primary-accent-color-text:#ff6fbd!important;--sui-primary-accent-color-inverted:#fff!important}
-/* neutral black & grey surfaces (no purple tint) */
-:root[data-theme="dark"]{--sui-background-color-1-hsl:0 0% 7%!important;--sui-background-color-2-hsl:0 0% 10%!important;--sui-background-color-3-hsl:0 0% 12%!important;--sui-background-color-4-hsl:0 0% 17%!important;--sui-background-color-5-hsl:0 0% 30%!important;--sui-border-color-1-hsl:0 0% 45%!important;--sui-border-color-2-hsl:0 0% 26%!important;--sui-border-color-3-hsl:0 0% 21%!important;--sui-foreground-color-1-hsl:0 0% 96%!important;--sui-foreground-color-2-hsl:0 0% 82%!important;--sui-foreground-color-3-hsl:0 0% 68%!important;--sui-foreground-color-4-hsl:0 0% 55%!important;--sui-foreground-color-5-hsl:0 0% 36%!important}
+/* deep black surfaces matching the website (#0E0E12) */
+html,body{background:#0E0E12!important}
+:root[data-theme="dark"]{--sui-background-color-1-hsl:240 12% 6%!important;--sui-background-color-2-hsl:240 10% 4%!important;--sui-background-color-3-hsl:240 8% 9%!important;--sui-background-color-4-hsl:240 6% 14%!important;--sui-background-color-5-hsl:240 5% 26%!important;--sui-border-color-1-hsl:0 0% 45%!important;--sui-border-color-2-hsl:0 0% 26%!important;--sui-border-color-3-hsl:0 0% 21%!important;--sui-foreground-color-1-hsl:0 0% 96%!important;--sui-foreground-color-2-hsl:0 0% 82%!important;--sui-foreground-color-3-hsl:0 0% 68%!important;--sui-foreground-color-4-hsl:0 0% 55%!important;--sui-foreground-color-5-hsl:0 0% 36%!important}
 :root[data-theme="light"]{--sui-background-color-1-hsl:0 0% 100%!important;--sui-background-color-2-hsl:0 0% 98%!important;--sui-background-color-3-hsl:0 0% 95%!important;--sui-background-color-4-hsl:0 0% 91%!important;--sui-background-color-5-hsl:0 0% 80%!important;--sui-border-color-1-hsl:0 0% 55%!important;--sui-border-color-2-hsl:0 0% 70%!important;--sui-border-color-3-hsl:0 0% 80%!important;--sui-foreground-color-1-hsl:0 0% 6%!important;--sui-foreground-color-2-hsl:0 0% 20%!important;--sui-foreground-color-3-hsl:0 0% 35%!important;--sui-foreground-color-4-hsl:0 0% 48%!important;--sui-foreground-color-5-hsl:0 0% 62%!important;--sui-primary-accent-color-text:#c0147a!important}
 button.primary,[role="button"].primary,.sui.button.primary{background:linear-gradient(90deg,#E2198B,#8A55D6,#0A86FF)!important;border:0!important;color:#fff!important}
 </style></head>
