@@ -59,19 +59,32 @@ function intro() {
   document.addEventListener("visibilitychange", () => { if (document.visibilityState !== "visible") introTweens.forEach(tw => tw.progress(1)); });
 }
 
-/* ---------- portfolio + lightbox (home) ---------- */
-const grid = $("#grid"), filters = $("#filters"), cats = $("#cats"), lb = $("#lb");
-let cur = 0, lastFocus = null;
-function setFilter(f) {
-  if (!filters) return;
-  $$("button", filters).forEach(b => b.setAttribute("aria-pressed", String(b.dataset.f === f)));
-  $$(".item", grid).forEach(it => it.classList.toggle("out", !(f === "all" || it.dataset.c === f)));
-  if (hasG && !reduce) gsap.fromTo($$(".item:not(.out)", grid), { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: .6, stagger: .04, ease: "power3.out", overwrite: true });
-  if (hasG) ScrollTrigger.refresh();
+/* ---------- products: category slider -> category popup -> product lightbox ---------- */
+const cats = $("#cats"), cm = $("#cm"), lb = $("#lb");
+let cur = 0, lastFocus = null, cmFocus = null, curCat = "";
+const visibleIdx = () => curCat ? $$('.cm-panel[data-cat="' + curCat + '"] .item').map(x => +x.dataset.i) : [cur];
+function openCat(id) {
+  if (!cm) return;
+  curCat = id; cmFocus = document.activeElement;
+  $$(".cm-panel", cm).forEach(p => p.hidden = p.dataset.cat !== id);
+  cm.setAttribute("aria-label", catName(id) + " products");
+  cm.hidden = false; requestAnimationFrame(() => cm.classList.add("open"));
+  document.body.style.overflow = "hidden"; $(".cm-box", cm).scrollTop = 0; $("#cmClose").focus();
 }
-if (filters) filters.addEventListener("click", e => { const b = e.target.closest("button"); if (b) setFilter(b.dataset.f); });
-if (cats) cats.addEventListener("click", e => { const b = e.target.closest(".cat"); if (!b) return; setFilter(b.dataset.cat); filters.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); });
-const visibleIdx = () => $$(".item:not(.out)", grid).map(x => +x.dataset.i);
+function closeCat() { if (!cm || cm.hidden) return; cm.classList.remove("open"); setTimeout(() => { cm.hidden = true; }, 300); document.body.style.overflow = ""; if (cmFocus) cmFocus.focus(); }
+if (cats) {
+  cats.addEventListener("click", e => { const b = e.target.closest(".cat"); if (b) openCat(b.dataset.cat); });
+  const by = d => cats.scrollBy({ left: d * Math.min(cats.clientWidth * .8, 720), behavior: reduce ? "auto" : "smooth" });
+  const p = $("#catPrev"), n = $("#catNext");
+  if (p) p.addEventListener("click", () => by(-1)); if (n) n.addEventListener("click", () => by(1));
+  const upd = () => { if (!p) return; p.disabled = cats.scrollLeft < 8; n.disabled = cats.scrollLeft + cats.clientWidth > cats.scrollWidth - 8; };
+  cats.addEventListener("scroll", upd, { passive: true }); addEventListener("resize", upd); setTimeout(upd, 300);
+}
+if (cm) {
+  $("#cmClose").addEventListener("click", closeCat);
+  cm.addEventListener("click", e => { if (e.target === cm) closeCat(); const it = e.target.closest(".item"); if (it) { lb.classList.remove("tech"); showWork(+it.dataset.i); openLB(); } });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !lb.classList.contains("open")) closeCat(); });
+}
 function showWork(i, j = 0) {
   cur = i; const w = DATA.items[i]; if (!w) return;
   $("#lbImg").src = src(w.images[j]); $("#lbImg").alt = w.brand + " " + w.product;
@@ -82,7 +95,7 @@ function showWork(i, j = 0) {
   const v = visibleIdx(); $("#lbCount").textContent = (v.indexOf(i) + 1) + " / " + v.length;
 }
 function openLB() { lastFocus = document.activeElement; lb.classList.add("open"); document.body.style.overflow = "hidden"; $("#lbClose").focus(); }
-function closeLB() { lb.classList.remove("open"); document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
+function closeLB() { lb.classList.remove("open"); if (!cm || cm.hidden) document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
 function step(d) { const v = visibleIdx(); let p = v.indexOf(cur); if (p < 0) p = 0; showWork(v[(p + d + v.length) % v.length]); }
 function openTech(i) {
   const x = DATA.techniques[i]; if (!x) return; lb.classList.add("tech");
@@ -93,12 +106,11 @@ function openTech(i) {
   $("#lbThumbs").innerHTML = ""; openLB();
 }
 if (lb) {
-  grid.addEventListener("click", e => { const b = e.target.closest(".item"); if (b) { lb.classList.remove("tech"); showWork(+b.dataset.i); openLB(); } });
-  $$("[data-tech]").forEach(b => b.addEventListener("click", () => openTech(+b.dataset.tech)));
+  $$("[data-tech]").forEach(b => b.addEventListener("click", () => { curCat = ""; openTech(+b.dataset.tech); }));
   $("#lbThumbs").addEventListener("click", e => { const b = e.target.closest("button"); if (b) showWork(cur, +b.dataset.k); });
   $("#lbClose").addEventListener("click", closeLB); $("#lbPrev").addEventListener("click", () => step(-1)); $("#lbNext").addEventListener("click", () => step(1));
   lb.addEventListener("click", e => { if (e.target === lb || e.target.classList.contains("stagebox")) closeLB(); });
-  document.addEventListener("keydown", e => { if (!lb.classList.contains("open")) return; if (e.key === "Escape") closeLB(); if (lb.classList.contains("tech")) return; if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1); });
+  document.addEventListener("keydown", e => { if (!lb.classList.contains("open")) return; if (e.key === "Escape") { e.stopImmediatePropagation(); closeLB(); } if (lb.classList.contains("tech")) return; if (e.key === "ArrowRight") step(1); if (e.key === "ArrowLeft") step(-1); });
 }
 
 /* ---------- reach switch ---------- */
@@ -262,7 +274,6 @@ if (exists("#tl")) {
   gsap.to("#tlfill", { height: "calc(100% - 16px)", ease: "none", scrollTrigger: { trigger: "#tl", start: "top 70%", end: "bottom 60%", scrub: true } });
 }
 if (exists("#gates")) ScrollTrigger.create({ trigger: "#gates", start: "top 60%", end: "bottom 70%", onUpdate: self => { const g = Math.min(3, Math.floor(self.progress * 4)); if (g !== setGate.last) { setGate.last = g; setGate(g); } } });
-if (exists("#cats")) gsap.fromTo("#cats", { x: 80 }, { x: -40, ease: "none", scrollTrigger: { trigger: "#portfolio", start: "top bottom", end: "bottom top", scrub: true } });
 if (exists("#partners")) {
   gsap.fromTo(".logos:not(.rev)", { x: -60 }, { x: 60, ease: "none", scrollTrigger: { trigger: "#partners", start: "top bottom", end: "bottom top", scrub: true } });
   gsap.fromTo(".logos.rev", { x: 60 }, { x: -60, ease: "none", scrollTrigger: { trigger: "#partners", start: "top bottom", end: "bottom top", scrub: true } });

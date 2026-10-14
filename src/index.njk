@@ -54,6 +54,27 @@ pageType: WebPage
   </div>
 </div>
 
+<!-- PRODUCTS: what we make, at a glance -->
+<section class="pad products" id="portfolio">
+  <div class="wrap prodhead">
+    <div>
+      <span class="eyebrow">{{ h.portfolioIntro.eyebrow }}</span>
+      <h2 class="h2" style="margin-top:14px">{{ h.portfolioIntro.titleStart }} <span class="script">{{ h.portfolioIntro.titleScript }}</span></h2>
+      <span class="gbar"></span>
+    </div>
+    <div class="catnav" aria-hidden="true">
+      <button type="button" class="ib dark" id="catPrev" tabindex="-1" aria-label="Previous categories"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button type="button" class="ib dark" id="catNext" tabindex="-1" aria-label="Next categories"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="cats" id="cats">
+    {%- for c in portfolio.categories %}
+    {%- set n = portfolio.items | countCat(c.id) %}
+    <button class="cat" data-cursor data-cat="{{ c.id }}" aria-haspopup="dialog"><img src="{{ c.image | u }}" alt="{{ c.name }}" loading="lazy"><span class="ct"><small>{{ (loop.index) | pad2 }}</small><b>{{ c.name }}</b><span>{{ c.description }}</span><em class="catcta">View {{ n }} product{{ "s" if n != 1 }} <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></em></span></button>
+    {%- endfor %}
+  </div>
+</section>
+
 <!-- 01 WHO WE ARE -->
 {{ chapter("who", h.chapters.who) }}
 
@@ -377,31 +398,6 @@ pageType: WebPage
   </div>
 </section>
 
-<section class="pad" id="portfolio" style="background:var(--ink);padding-bottom:clamp(60px,8vw,110px)">
-  <div class="wrap">
-    <span class="eyebrow">{{ h.portfolioIntro.eyebrow }}</span>
-    <h2 class="h2" style="margin-top:14px">{{ h.portfolioIntro.titleStart }} <span class="script">{{ h.portfolioIntro.titleScript }}</span></h2>
-    <span class="gbar"></span>
-  </div>
-  <div class="cats" id="cats">
-    {%- for c in portfolio.categories %}
-    <button class="cat" data-cursor data-cat="{{ c.id }}"><img src="{{ c.image | u }}" alt="{{ c.name }}" loading="lazy"><span class="ct"><small>{{ (loop.index) | pad2 }}</small><b>{{ c.name }}</b><span>{{ c.description }}</span></span></button>
-    {%- endfor %}
-  </div>
-  <div class="wrap">
-    <div class="filters" id="filters" role="group" aria-label="Filter work">
-      <button type="button" aria-pressed="true" data-f="all">All work<sup>{{ portfolio.items.length }}</sup></button>
-      {%- for c in portfolio.categories %}
-      <button type="button" aria-pressed="false" data-f="{{ c.id }}">{{ c.name }}<sup>{{ portfolio.items | countCat(c.id) }}</sup></button>
-      {%- endfor %}
-    </div>
-    <div class="grid" id="grid">
-      {%- for w in portfolio.items %}
-      <button class="item" data-cursor data-i="{{ loop.index0 }}" data-c="{{ w.category }}"><img src="{{ w.images[0] | u }}" alt="{{ w.brand }} {{ w.product }}" loading="lazy"><span class="meta"><small>{{ w.brand }}</small><b>{{ w.product }}</b></span></button>
-      {%- endfor %}
-    </div>
-  </div>
-</section>
 
 <section class="light pad" id="faq">
   <div class="wrap faqwrap">
@@ -428,6 +424,27 @@ pageType: WebPage
     <a class="btn" href="{{ '/start/' | u }}">{{ h.ctaBand.button }} {{ icon("arrow") | safe }}</a>
   </div>
 </section>
+
+<!-- category popup: products of one category (rendered here so search engines can read them) -->
+<div class="cm" id="cm" role="dialog" aria-modal="true" aria-labelledby="cmTitle" hidden>
+  <div class="cm-box">
+    <button class="ib dark close" id="cmClose" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    {%- for c in portfolio.categories %}
+    <div class="cm-panel" data-cat="{{ c.id }}" hidden>
+      <header class="cm-head">
+        <span class="eyebrow">{{ (loop.index) | pad2 }} · {{ portfolio.items | countCat(c.id) }} products</span>
+        <h2 class="cm-title">{{ c.name }}</h2>
+        <p>{{ c.description }}</p>
+      </header>
+      <div class="cm-grid">
+        {%- for w in portfolio.items %}{% if w.category == c.id %}
+        <button class="item" data-i="{{ loop.index0 }}" data-c="{{ w.category }}"><img src="{{ w.images[0] | u }}" alt="{{ w.brand }} {{ w.product }}" loading="lazy"><span class="meta"><small>{{ w.brand }}</small><b>{{ w.product }}</b></span></button>
+        {%- endif %}{% endfor %}
+      </div>
+    </div>
+    {%- endfor %}
+  </div>
+</div>
 
 <!-- lightbox -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbTitle">
